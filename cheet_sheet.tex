@@ -312,10 +312,22 @@ $\nabla_{C,\mu}KL(q_{C, \mu}|| p(C, \mu))$ can be computed exactly.
 \end{IEEEeqnarray*}
 
 \section{Markov-Chain Monte Carlo methods}
-Same motivation as for VI. We are interested in prediction but we can simply use the sum rule because the corresponding integrals are intractable. Hence we seek to approximate $p$ (the posterior) by approximate samples constructed by simulating a Markov chain. The Ergodic theorem (law of large numbers for Markov chains) tells us that we converge to the right quantity (even thou samples are not independent). However there are no certainties in general about how fast. $D$ is the state space.
+Same motivation as for VI. We are interested in prediction but we can simply use the sum rule because the corresponding integrals are intractable. Hence we seek to approximate $p$ (the posterior) by approximate samples constructed by simulating a Markov chain. The Ergodic theorem (law of large numbers for Markov chains) tells us that we converge to the right quantity (even thou samples are not independent). Here $D$ is the state space.
 
 $$
 \mathbb{E}[f(X)] \approx \lim_{N\to\infty}\frac{1}{N} \sum_{i=1}^N f(x_i) = \sum_{x \in D} \pi(x)f(x)
+$$
+
+Given that we have access to independent samples from the posterior, Hoeffding’s inequality tells us that the error decreases exponentially with $N$ given that $f$ is bounded between $[0, C]$. In MCMC samples are positively correlated, so the error typically does not decrease at the same rate as when the samples are independent.
+
+$$
+P(|\mathbb{E}_P[f(X)] - \frac{1}{N}\sum_{i=1}^N f(x_i)| > \epsilon) \leq 2\exp^{\frac{-2N\epsilon^2}{C^2}}
+$$
+
+If we want the error to be less than $\epsilon$ with probability $1 - \delta$:
+
+$$
+2\exp^{\frac{-2N\epsilon^2}{C^2}} \leq \delta 
 $$
 
 Given an unnormalized distribution $P(x) = \dfrac{1}{Z} Q(x)$, where $Q(x)$ is easy to evaluate but $Z$ is intractable, we can create a Markov chain that is efficient to simulate and has stationary distribution $P(x)$. Such Markov chain would have to be ergodic (there exists a finite t such that every state can be reached from every state in exactly t steps), which ensures uniqueness of a positive stationary distribution, which is independent from the starting distribution. All elements of the transition probability matrix strictly greater than 0 is a sufficient, but not necessary, condition for ergodiciy.
@@ -415,7 +427,11 @@ I(Y;X) &=& H(Y) - H(Y|X) \\
 &=& \frac{1}{2} \ln |I + \sigma_n^{-2}\Sigma |
 \end{IEEEeqnarray*}
 
-Choosing the optimal subset of observations of a given size is an NP-Hard problem, however we can greedily choose the one with the largest MI. MI is monotone sub modular which means, A) Information never hurts, B) there is diminishing returns as we add more data. It turns out that this approach provides constant-factor approximation that is near optimal. 
+Choosing the optimal subset of observations of a given size is an NP-Hard problem, however we can greedily choose the one with the largest MI. MI is monotone sub modular which means, A) Information never hurts, B) there is diminishing returns as we add more data. It turns out that this approach provides constant-factor approximation that is near optimal ($S$ is the optimal set of observations). 
+
+$$
+I(f(x_T), y_T) \geq \bigg(1 - \frac{1}{e} \bigg) \underset{|S| \leq T}{\operatorname{max}} \; I(f(x_S), y_S)
+$$
 
 For $S_t = \{ x_1, ..., x_t \}$ and following the same regression scheme as before. 
 
