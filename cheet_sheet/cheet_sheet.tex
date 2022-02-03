@@ -41,71 +41,6 @@
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
 
-\section{Math}
-\subsubsection{Bayes Thrm, Conditional Prob.}
-\begin{IEEEeqnarray*}{rCl}
-P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)} \\
-P(X, Y \mid Z) = \frac{P(X,Y,Z)}{P(Z)} 
-\end{IEEEeqnarray*}
-
-\subsubsection{Rules for the Mean}
-\begin{IEEEeqnarray*}{rCl}
-E(c) &=& c \\
-E(X+c) &=& E(X)+c \\
-E(cX ) &=& cE(X) \\
-E(X+Y) &=& E(X)+E(Y)
-\end{IEEEeqnarray*}
-
-\subsubsection{Rules for the Variance}
-\begin{IEEEeqnarray*}{rCl}
-Var(c) &=& 0 \\
-Var(X+c) &=& Var(X) \\
-Var(cX) &=& c^2Var(X)) \\
-Var(X+Y) &=& Var(X)+Var(Y) \\
-Var(X) &=& \mathbb{E}[(X-\mathbb{E}[X])^2]
-\end{IEEEeqnarray*}
-
-\subsubsection{Law of Total Probability}
-\begin{IEEEeqnarray*}{rCl}
-p(x) &=& \sum_y p(x \mid y)p(y) \\
-p(x) &=& \int_y p(x \mid y)p(y)dy
-\end{IEEEeqnarray*}
-
-\subsubsection{Univariate Gaussian}
-$f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}$\\
-
-\subsubsection{Multivariate Gaussian}
-\begin{IEEEeqnarray*}{rCl}
-f_{\mathbf {X} }(x_{1},\ldots ,x_{k}) &=& {\frac {1}{\sqrt {(2\pi )^{k} |\Sigma| }}} \\
-&& e^{\left(-{\frac {1}{2}}({\mathbf {x} }-{\boldsymbol {\mu }})^{\mathrm {T} }{\boldsymbol {\Sigma }}^{-1}({\mathbf {x} }-{\boldsymbol {\mu }})\right)}
-\end{IEEEeqnarray*}
-
-\subsubsection{Univariate Laplacian}
-$f(x)={\frac {1}{2b}}e^{\left(-{\frac {|x-\mu |}{b}}\right)}$
-
-\subsection{Conditional Random Vectors}  
-\begin{IEEEeqnarray*}{rCl}
-\mu_{A \mid B} &=& \mu_A +  \Sigma_{AB}\Sigma_{BB}^{-1}(x_B - \mu_B) \\
-\Sigma_{A \mid B} &=& \Sigma_{AA} - \Sigma_{AB}\Sigma_{BB}^{-1}\Sigma_{AB} \\
-  \Sigma_{AB} &=& \begin{bmatrix}
-    \sigma_{i_1, j_1} & \ldots & \sigma_{i_1, j_m} \\
-    \vdots & \ddots & \vdots \\
-    \sigma_{i_k, j_1} & \ldots & \sigma_{i_k, j_m}
-  \end{bmatrix}
-\end{IEEEeqnarray*}
-
-\subsection{Linearity of Gaussians}
-\begin{IEEEeqnarray*}{rCl}
-MX \sim \mathcal{N}(M\mu_V, M\Sigma_{VV}M^T) \\
-X + X' \sim \mathcal{N}(\mu_V + \mu_V ', \Sigma_{VV} + \Sigma_{VV} ')
-\end{IEEEeqnarray*}
-
-\subsection{Bayesian learning}
-\begin{IEEEeqnarray*}{rCl}
-p(\theta | X, Y) &=& \frac{1}{Z} p(\theta) \prod_{i=1}^n p(y_i | x_i, \theta) \\
-p(y^{\star}| x^{\star}, X, Y) &=& \int p(y^{\star}| x^{\star}, \theta) p(\theta | X, Y) 
-\end{IEEEeqnarray*}
-
 \section{Bayesian Linear Regression}
 \begin{IEEEeqnarray*}{rCl}
 p(w|X,y) &=& \mathcal{N}(w;\bar{\mu}, \bar{\Sigma}) \\
@@ -180,7 +115,8 @@ $K(\theta)$ is the Kernel matrix.
 &=& \underset{\theta}{\operatorname{argmax}} \; \mathcal{N} (0, K(\theta) + I\sigma_n^2) \\
 &=& \underset{\theta}{\operatorname{argmax}} \; p(y_{train} \mid x_{train}, \theta) \\
 &=& \underset{\theta}{\operatorname{argmin}} \;-\log p(y_{train} \mid x_{train}, \theta) \\ 
-&=& \underset{\theta}{\operatorname{argmin}} \; \frac{1}{2} \big(y(K(\theta) + I\sigma_n^2)^{-1}y + \log (\det K_y) \big)  \\
+&=& \underset{\theta}{\operatorname{argmin}} \; \frac{1}{2} \big(y(K(\theta) + I\sigma_n^2)^{-1}y \\
+&+& \log (\det K_y) \big) 
 \end{IEEEeqnarray*}
 
 \section{Laplace Approximation}
@@ -335,224 +271,166 @@ NLL loss over the validation set when applied to the logits $z_i$, $\hat{q}_i = 
 
 
 \section{Active Learning}
-Active learning refers to a family of approaches that aim to collect data that maximally reduces uncertainty about an unknown model. To quantify the reduction in uncertainty given a new observation we use MI. In the regression setting, where $Y = X + \epsilon$ and $\epsilon \sim \mathcal{N}(0, \sigma_n^2I)$.
+Given $Y = X + \epsilon$ and $\epsilon \sim \mathcal{N}(0, \sigma_n^2I)$.
 
 \begin{IEEEeqnarray*}{rCl}
-I(X;Y) &=& H(X) - H(X|Y) \\
 I(Y;X) &=& H(Y) - H(Y|X) \\
 &=& H(Y) - H(\epsilon) \\
-&=& \frac{1}{2} \ln(2\pi e)^d |\Sigma + \sigma^2 I| - \frac{1}{2} \ln(2\pi e)^d |\sigma^2_n I| \\
+&=& \frac{1}{2} \ln(2\pi e)^d |\Sigma + \sigma^2 I| \\
+&-& \frac{1}{2} \ln(2\pi e)^d |\sigma^2_n I| \\
 &=& \frac{1}{2} \ln \frac{(2\pi e)^d |\Sigma + \sigma^2 I|}{(2\pi e)^d |\sigma^2_n I|} \\
 &=& \frac{1}{2} \ln |I + \sigma_n^{-2}\Sigma |
 \end{IEEEeqnarray*}
 
-Choosing the optimal subset of observations of a given size is an NP-Hard problem, however we can greedily choose the one with the largest MI. MI is monotone sub modular which means, A) Information never hurts, B) there is diminishing returns as we add more data. It turns out that this approach provides constant-factor approximation that is near optimal ($S$ is the optimal set of observations). 
-
-$$
-I(f(x_T), y_T) \geq \bigg(1 - \frac{1}{e} \bigg) \underset{|S| \leq T}{\operatorname{max}} \; I(f(x_S), y_S)
-$$
-
-For $S_t = \{ x_1, ..., x_t \}$ and following the same regression scheme as before. 
+\subsubsection{Uncertainty Sampling}
+$S$ is the optimal set of observations, $S_t$ the greedy set. Following the same regression scheme as before. 
 
 \begin{IEEEeqnarray*}{rCl}
-	x_{t+1} &=& \underset{x}{\operatorname{argmax}} \; \mathbb{I}(f; y_x | y_{S_t}) \\ 
-	&=& \underset{x}{\operatorname{argmax}} \;\frac{1}{2} \log \big(1 + \frac{\sigma_t^2(x)}{\sigma_n^2} \big) 
+&& I(f(x_T), y_T) \geq \bigg(1 - \frac{1}{e} \bigg) \underset{|S| \leq T}{\operatorname{max}} \; I(f(x_S), y_S) \\
+&& x_{t+1} = \underset{x}{\operatorname{argmax}} \; \mathbb{I}(f; y_x | y_{S_t}) \\ 
+&& = \underset{x}{\operatorname{argmax}} \;\frac{1}{2} \log \big(1 + \frac{\sigma_t^2(x)}{\sigma_n^2} \big) 
 \end{IEEEeqnarray*}
 
-In the homeostatic case this optimization problem boils down to greedily assigning $x_{t+1} = \underset{x \in D}{\operatorname{argmax}} \; \sigma_{t}^2(x)$. This approach is termed Uncertainty sampling. In the heteroscedastic case on must also take the aleatroic uncertainty into account $x_{t+1} = \underset{x}{\operatorname{argmax}} \; \frac{\sigma_t^2(x)}{\sigma_n^2(x)}$.
-
 \subsection{Active Learning for Classification}
-In this setting uncertainty sampling corresponds to selecting samples that maximize entropy of the predicted label $x_{t+1} = \underset{x}{\operatorname{argmax}} \; H(Y|x, X_t, Y_t)$. However most uncertain label is not necessarily most informative (specially when the noise is very high). One can us the MI instead and apply approximate Bayesian Learning. By calculating an approximate distribution for each new point one can sample it and estimate the MI value, then compare all of them and choose the point that maximizes it. 
+Uncertainty sampling: $x_{t+1} = \operatorname{argmax}_x \; H(Y|x, X_t, Y_t)$. Even better, use approximate inference to estimate the MI and use it as selection criteria. 
 
 \begin{IEEEeqnarray*}{rCl}
 x_{t+1} &=& \underset{x \in D}{\operatorname{argmax}} \; \mathbb{I}(\theta; y_{t+1} | Y_t, X_t, x_{t+1}) \\
-&=& H(y_{t+1} | Y_t, X_t, x_{t+1}) - \mathbb{E}_{\theta \sim p(|X_t, Y_t)}[H(y_{t+1} | \cdot, \theta)] \\
-&\approx & H(y_{t+1} | Y_t, X_t, x_{t+1}) - \frac{1}{m} \sum_{j=1}^m H(y_{t+1} | \cdot, \theta^{(j)})\\
+&=& H(y_{t+1} | Y_t, X_t, x_{t+1}) \\
+&-& \mathbb{E}_{\theta \sim p(|X_t, Y_t)}[H(y_{t+1} | \cdot, \theta)] \\
+&\approx & H(y_{t+1} | Y_t, X_t, x_{t+1}) \\
+&-& \frac{1}{m} \sum_{j=1}^m H(y_{t+1} | \cdot, \theta^{(j)})\\
 \end{IEEEeqnarray*}
 
 \section{Bayesian Optimization}
-How should we sequentially pick $x_1,...,x_t$ to find $max_x f(x)$ with minimal samples (e.g. tradeing off exploration and exploration)? By defining the cumulative average regret we can gauge how well a specific exploration-exploration strategy is working. $f^*$ is the somehow known maximum (perhaps in hindsight). 
-
+\subsubsection{Cumulative Regret}
 $$
 \frac{1}{T} \sum_{t=1}^T [f(x^*) - f(x_t)] \to 0
 $$
 
-While this ideas generalize to other Bayesian Learning problems the focus was on GP's.
+\subsubsection{Upper confidence sampling}
+$x_{t+1} = \underset{x \in D}{\operatorname{argmax}} \; \mu_{t}(x) + \beta_t \sigma_{t}(x)$. Convergence of the cumulative regret as a function of $\gamma_T = \underset{|S| <= T}{\operatorname{max}} \; I(f;y_S)$
 
-\subsection{Upper confidence sampling}
-Method for GP, where we believe that the true unknown function is contained withing the confidence bounds s.t. upper confidence bound $\geq$ best lower bound. Hence $x_{t+1} = \underset{x \in D}{\operatorname{argmax}} \; \mu_{t}(x) + \beta_t \sigma_{t}(x)$. By choosing this strategy we only picks plausible maximizers. This optimization problem is generally non convex, however there are workarounds. 
-
-One can analyze how long it takes the algorithm to converge. This is parametrized by the maximal mutual information $\gamma_T = \underset{|S| <= T}{\operatorname{max}} \; I(f;y_S)$, which in turn depends on the nature of the function to be discovered. One can also adjust the $\beta$ to insure that the true function is contained. 
-
-\subsection{Improvement Based Acquisition Functions}
 \subsubsection{Probability of Improvement}
-Provided a new point $x$ and a so far best observed function value $f^*$, choose point based on the probability that the function evaluated at that value is higher than the maximum observed so far. It might favor points close the the so far observed maximum since the variance is small around it. 
-
 $$
 PI(x) = P(f(x) > f^*) = \Phi(\frac{\mu_{t}(x) - f^*}{\sigma_{t}(x)})
 $$
 
 \subsubsection{Expected Improvement}
-Takes into account the magnitude of the potential improvement: 
-
-$$
-x_{t+1} = \underset{x \in D}{\operatorname{argmax}} \; \mathbb{E}_{f_{t}(x) \sim \mathcal{N}(\mu_{t}, \sigma_t)} [max(0, f_t(x) - f^*)]
-$$
+\begin{IEEEeqnarray*}{rCl}
+&& x_{t+1} = \\
+&&\underset{x \in D}{\operatorname{argmax}} \; \mathbb{E}_{f_{t}(x) \sim \mathcal{N}(\mu_{t}, \sigma_t)} [max(0, f_t(x) - f^*)]
+\end{IEEEeqnarray*}
 
 \subsection{Thomson Sampling}
-We sample a function from our function space and maximize it. The randomness in the sampling is sufficient for exploration. $\tilde{f} \sim \mathcal{P}(f | X_t, Y_t)$, and then $x_{t+1} \in \underset{x \in D}{\operatorname{argmax}} \; \tilde{f}(x)$.
+Sample $\tilde{f} \sim \mathcal{P}(f | X_t, Y_t)$, and then $x_{t+1} \in \underset{x \in D}{\operatorname{argmax}} \; \tilde{f}(x)$.
 
 \section{Markov Decision Processes}
 \subsection{Expected Value of a Policy}
 For a determinnistic policy $\pi$ and a given state $x$.
 
 \begin{IEEEeqnarray*}{rCl}
-&=& J(\pi | X_0 = x) \\
+&& J(\pi | X_0 = x) \\
 &=& V^{\pi}(x) \\
 &=& \mathbb{E}[\sum_{t=0}^\infty \gamma^t r(X_t, \pi(X_t)) | X_0 = x] \\
 &=& r(x, \pi(x)) \\
-&+& \gamma \sum_{x'} P(x'|x, \pi(x))  \mathbb{E}[\sum_{t=0}^\infty \gamma^t r(X_t, \pi(X_t)) | X_0 = x'] \\
+&+& \gamma \sum_{x'} P(x'|x, \pi(x)) \\
+&& \mathbb{E}[\sum_{t=0}^\infty \gamma^t r(X_t, \pi(X_t)) | X_0 = x'] \\
 &=& r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V^{\pi}(x')
 \end{IEEEeqnarray*}
 
-For all states this yields a system of equations that has a closed form. 
+$\forall x$:
 
 \begin{IEEEeqnarray*}{rCl}
 V^{\pi} &=& r^{\pi} + \gamma T^{\pi}V^{\pi} \\
 V^{\pi} &=& (I - \gamma T^{\pi})^{-1}r^{\pi} \\
 \end{IEEEeqnarray*}
 
-Alternatively one can solve the linear system approximately by fixed point iteration (Loop $T$ times s.t. $V^{\pi}_t = r^{\pi} + \gamma T^{\pi}V^{\pi}_{t-1}$). This provides computational advantages for sparse solutions. 
+\subsubsection{Fixed Point Iteration} 
+Loop $T$ times s.t. $V^{\pi}_t = r^{\pi} + \gamma T^{\pi}V^{\pi}_{t-1}$. Computational advantages for sparse solutions. 
 
 \subsection{Policy Iteration}
-In a tabular setting one can compute the optimal policy with this method. Convergence to the optimal policy in $O * (n^2m / (1-\gamma))$ iterations.  
-
-\begin{enumerate}
-\item Start with an arbitrary (e.g., random) policy $\pi$ 
-\item Until converged do:
-\begin{itemize}
-\item Compute value function $V^{\pi}$ by solving the system of equations. 
-\item Compute greedy policy $\pi_V(x) = \underset{a}{\operatorname{argmax}} \; r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V(x')$  w.r.t. the previously computed $V^{\pi}$.
-\item Set $\pi \leftarrow \pi_V$.   
-\end{itemize}
-\end{enumerate}
+Convergence $\pi^\star$ in $O * (n^2m / (1-\gamma))$ iterations. Start with an arbitrary (e.g., random) policy $\pi$. Compute $V^{\pi}$. Compute greedy policy $\pi_V(x) = \underset{a}{\operatorname{argmax}} \; r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V(x')$  w.r.t. the previously computed $V^{\pi}$. Set $\pi \leftarrow \pi_V$.   
 
 \subsection{Value Iteration}
-Can show that converges since the Bellman update is a contraction. Much computationally cheaper specially for sparse MDP's. In practice, which works better depends on application.
-
-\begin{enumerate}
-\item Initialize $V_0(x) = \underset{a}{\operatorname{max}} \; r(x, a)$
-\item For $t = 1$ to $\infty$
-\begin{itemize}
-\item For each $x, a$, $Q_t(x, a) = r(x, a) + \gamma \sum_{x'} P(x'|x, \pi(x))  V_{t-1}(x')$
-\item For each  $x$, $V_t(x) = \underset{a}{\operatorname{max}} \; Q_t(x, a)$
-\item Break if $\underset{x}{\operatorname{max}} \; |V_t(x) -V_{t-1}(x)| \le \epsilon$
-\end{itemize}
-\end{enumerate}
+Initialize $V_0(x) = \underset{a}{\operatorname{max}} \; r(x, a)$. For $t = 1$ to $\infty$: For each $x, a$, $Q_t(x, a) = r(x, a) + \gamma \sum_{x'} P(x'|x, \pi(x))  V_{t-1}(x')$. For each  $x$, $V_t(x) = \underset{a}{\operatorname{max}} \; Q_t(x, a)$ Break if $\underset{x}{\operatorname{max}} \; |V_t(x) -V_{t-1}(x)| \le \epsilon$, otw repeat.
 
 \section{POMDP's}
-In contrast to MDPs the whole state space is not known. Only obtain noisy observations $Y_t$ of the hidden state $X_t$. Given an action $a_t$ at time $t$,  the new state has probability $P(X_{t+1} = x' | x_t, a_t)$ and we observe $y_t \sim P(Y_t | X_t  = x_t)$. Belief states explodes even for finite horizons. This implies a computational hurdle for POMDP's even thou we have the same theoretical understanding of them than MDP's.
-  
-State update and reward function:
+New state has probability $P(X_{t+1} = x' | x_t, a_t)$ and we observe $y_t \sim P(Y_t | X_t  = x_t)$.
+
 \begin{IEEEeqnarray*}{rCl}
-&=& b_{t+1}(x) \\ 
+&& b_{t+1}(x) \\ 
 &=& P(X_{t+1} = x' | y_{t+1}) \\
-&=&  \frac{1}{Z} \sum_{x'} b_t(x) P(X_{t+1} = x' | x', a_t) P (y_{t+1} | x) \\
+&=&  \frac{1}{Z} \sum_{x'} b_t(x) P(X_{t+1} = x' | x', a_t) \\
+&& P (y_{t+1} | x) \\
 r(b_t, a_t) &=& \sum_x b_t(x) r(x, a_t)
 \end{IEEEeqnarray*}
 
 \section{Reinforcement Learning}
-\begin{itemize}
-\item Episodic setting: Agent learns over multiple training episodes or trajectories. The environment resets after each episode.
-\item Non-episodic: Agent learns “online”, yielding a single trajectory.
-\item On-policy: Agent has full control over which actions to pick.
-\item Off-policy: Agent has no control over actions, only gets observational data (e.g., demonstrations, data collected by applying a different policy, ...).
-\item Stationary Value Function: at any time-step in the episode $V^{\star}_i(x) = V^{\star}_j(x)$
-\item Stationary Policy: A stationary policy is the one that does not depend on time (e.g. for a given state the optimal action is the same regardless of the time step at which the state is visited).
-\end{itemize}
+Stationary Value Function:  $\forall \; t$, $V^{\star}_i(x) = V^{\star}_j(x)$. Stationary Policy: For a given state the optimal action is the same regardless of the time step at which the state is visited).
 
 \subsection{Model Based RL}
-Learn the MDP, e.g. estimate transition probabilities, estimate reward function r(x, a), optimize policy based on estimated MDP, repeat. Using MLE one can estimate the transition probabilities and the reward function given a set of episodes. This applies to the tabular a non tabular setting (section after model free RL). 
-
+\subsubsection{MLE}
 \begin{IEEEeqnarray*}{rCl}
 \hat{P}(X_{t+1} | X_t, A) &=& \frac{Count(X_{t+1}, X_t, A)}{Count(X_{t+1}, A)} \\
 \hat{r} &=& \frac{1}{N_{x, a}} \sum_{t} R_t
 \end{IEEEeqnarray*}
 
-However one still needs to decide on how to explore the state space. Ideally we would like to explore but biased towards solution spaces that would give us high rewards. Pure greedy exploration will not work because it might be blind to optimal solutions that are not greedy. One possible solution is to do $\epsilon$ greedy exploration; with probability $\epsilon_t$ pick random action and with probability ($1-\epsilon_t$) pick best action.
-
 \subsubsection{Rmax Algorithm}
-Can rule out clearly sub-optimal actions very quickly. It can be very memory expensive since we have to keep a counter for every state action pair and computationally expensive since after each episode we use value or policy iteration.
-
-\begin{enumerate}
-\item Initially:
-\begin{itemize}
-\item add fairy tale state $x^{\star}$
-\item set $r(x, a) = Rmax$ for all states $x$ and actions $a$
-\item set $P(x^{\star} |x,a)=1$ for all $(x, a)$
-\item choose optimal policy for $r$ and $P$
-\end{itemize}
-
-\item Loop:
-\begin{itemize}
-\item Execute policy $\pi$
-\item for each visited state action pair update $r(x, a)$
-\item estimate transition probabilities $P(x' | x, a)$
-\item if observed “enough” transitions / rewards
-\item recompute policy $\pi$ according to current model $P$ and $r$.
-\end{itemize}
-\end{enumerate}
+Initially: Add fairy tale state $x^{\star}$. Set $r(x, a) = Rmax$ for all states $x$ and actions $a$. Set $P(x^{\star} |x,a)=1$ for all $(x, a)$. Choose optimal policy for $r$ and $P$. Loop: Execute policy $\pi$. for each visited state action pair update $r(x, a)$. estimate transition probabilities $P(x' | x, a)$. if observed “enough” transitions / rewards. recompute policy $\pi$ according to current model $P$ and $r$.
 
 \subsection{Model Free RL}
 Estimate the value function directly.
 
 \subsubsection{TD-Learning}
-On-policy method. Given any policy $\pi$, want to estimate $V^{\pi}(x)$. I observe episodes, each has a number of time-steps. Each time I observe a state I can update its value function given the observed reward and the value function at the next state by averaging (helps reduce variance) it with the past value function. Guarantees convergence (conditional on $\alpha_t$) of the value function given a policy, not the optimal policy. Hence its just a replacement of something like value iteration.
+On-policy method. Estimate $V^{\pi}(x)$. Guarantees convergence conditional on $\alpha_t$.
 
 $$
 \hat{V}^{\pi}(x) = (1 - \alpha_t)\hat{V}^{\pi}(x) + \alpha_t(r + \gamma \hat{V}^{\pi}(x'))
 $$
 
-Tabular TD-learning update rule can be viewed as stochastic gradient decent on the squared loss, where we use old value estimates as labels/targets ($r + \gamma V(x'; \theta_{old}) = y$). Same insight applies for the $Q(x, a)$.
+\subsubsection{SGD on the squared loss}
+Old value estimates are labels/targets ($r + \gamma V(x'; \theta_{old}) = y$). Same insight applies for the $Q(x, a)$.
 
 $$
 l_2(\theta ; x, x', r) = \frac{1}{2}(V(x,\theta) - r - \gamma V(x'; \theta_{old}))^2
 $$
 
 \subsubsection{Q-learning}
-Off-policy. We have a behavioral policy that we use to collect the data. Here we aim to estimate the optimal policy. We can mimic the idea of optimistically initialization by initializing the $Q$ to very large values. For Q learning to converge you have to visit all state action pairs inf many times. If you do greedy and optimistic initialization then it converges. Otherwise you have to strike a trade off with some epsilon greedy exploration strategy.
+Off-policy. Estimate the optimal policy via some behavioral policy. Optimistic initialization possible (guaranteed convergence). General convergence guaranteed if $\forall \; (a, x)$ are visited infinitely many times. Otw trade off with epsilon greedy strategy.
 
 \begin{IEEEeqnarray*}{rCl}
-Q^{\star}(x, a) &=& r(x,a) + \gamma \sum_{x'} P(x' | x, a) V^{\star}(x') \\
-V^{\star}(x) &=& \underset{a}{\operatorname{max}} \; Q^{\star}(x, a) \\
-Q^{\star}(x, a) &\leftarrow& (1 - \alpha_t)Q^{\star}(x, a) + \alpha_t(r + \gamma \underset{a'}{\operatorname{max}} \; Q^{\star}(x', a'))
+&& Q^{\star}(x, a) = r(x,a) \\
+&+& \gamma \sum_{x'} P(x' | x, a) V^{\star}(x') \\
+&& V^{\star}(x) = \underset{a}{\operatorname{max}} \; Q^{\star}(x, a) \\
+&& Q^{\star}(x, a) \leftarrow (1 - \alpha_t)Q^{\star}(x, a) \\
+&+& \alpha_t(r + \gamma \underset{a'}{\operatorname{max}} \; Q^{\star}(x', a'))
 \end{IEEEeqnarray*}
 
-We require memory for each state action pair, which becomes unfeasible for continues state spaces. 
+Unfeasible for continues state spaces because of memory requirement $\forall \; (a, x)$. 
 
 \subsubsection{Approximating value functions}
 Linear function approximation, where $\phi(x, a)$ is a set of hand designed features. 
 
 \begin{IEEEeqnarray*}{rCl}
 \hat{Q}(x, a; \theta) &=& \theta^T \phi(x,a)\\
-l_2(\theta ; x, a, x', r) &=& \frac{1}{2}(Q(x, a, \theta) - r - \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}))^2 \\
-\delta &=& Q(x, a, \theta) - r - \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}) \\
+l_2(\theta ; x, a, x', r) &=& \frac{1}{2}(Q(x, a, \theta) - r \\
+&-& \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}))^2 \\
+\delta &=& Q(x, a, \theta) - r \\
+&-& \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}) \\
 \theta &\leftarrow & \theta - \alpha_t \delta \nabla_{\theta} Q(x,a;\theta) \\
 \theta &\leftarrow & \theta - \alpha_t \delta \phi(x, a) \\
 \end{IEEEeqnarray*}
 
-In this setting the natural thing is an online algorithm where at each step we update $\theta$ according to the rules above. This vanilla version leads to a lot of variance in the estimates of the target values. To counter this one might want to keep the target values constant across episodes (e.g. replay buffer or twin network).
+To reduce variance keep the target values constant across episodes (e.g. replay buffer or twin network).
 
-$$
-L(\theta) = \sum_{(x, a, r, x') \in D}(Q(x, a, \theta) - r - \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}))^2
-$$
+\begin{IEEEeqnarray*}{rCl}
+L(\theta) &=& \sum_{(x, a, r, x') \in D}(Q(x, a, \theta) - r \\ &-& \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}))^2
+\end{IEEEeqnarray*}
  
-Double DQN allows us to avoid maximization bias (overconfidence about certain actions given the noise in the observations) by maximizing over the actions w.r.t. the current network instead of the old one (WTF does this mean?). Nevertheless the maximization remains intractable for continues action spaces. 
+Double DQN avoids maximization bias (overconfidence about certain actions given the noise in the observations) by maximizing w.r.t. the current network instead of the old one. Nevertheless the maximization remains intractable for continues action spaces. 
 
 \subsection{Policy search methods}
-Learning a parameterized policy. Rollouts are trajectories that are distributed according to a parametrized policy. We can calculate the reward for a particular roll out.
-We can estimate the expected reward of the policy by averaging the reward of each roll out (MC sampling). Then we aim to find optimal policy parameters through global optimization of the reward expectation.
-
 \begin{IEEEeqnarray*}{rCl}
 \pi(x) &=& \pi(x,\theta) \\
 r(\tau^{(i)}) &=& \sum_{t=0}^T \gamma^t r_t^{(i)} \\
@@ -562,122 +440,83 @@ J(\theta) &\approx & \frac{1}{m} \sum_{i=1}^m r(\tau^{(i)}) \\
 &=& \mathbb{E}_{\tau \sim \pi_{\theta}}[r(\tau)\nabla\log\pi_{\theta}(\tau)]
 \end{IEEEeqnarray*}
 
-This approach gives unbiased estimates but they might have a huge variance. Baselines help to reduce this variance.  
-
 \subsection{REINFORCE Algorithm}
 \begin{IEEEeqnarray*}{rCl}
-&=& \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T r(\tau)\nabla\log\pi_{\theta}(a_t|x_t;\theta)] \\
-&=& \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T (r(\tau) - b(\tau_{0:t-1})) \nabla \log \pi_{\theta}(a_t|x_t;\theta)] \\
-b(\tau_{0:t-1}) &=& \sum_{t'=0}^{t-1}\gamma^{t'}r_{t'} \\
-\nabla_{\theta} J(\theta) &=& \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T \gamma^t G_t \nabla \log \pi_{\theta}(a_t|x_t;\theta)] \\
-G_t &=& \sum_{t'=t}^T \gamma^{t'-t}r_t 
+&& \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T r(\tau)\nabla\log\pi_{\theta}(a_t|x_t;\theta)] \\
+&& \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T (r(\tau) - b(\tau_{0:t-1})) \\
+&& \nabla \log \pi_{\theta}(a_t|x_t;\theta)] \\
+&& b(\tau_{0:t-1}) = \sum_{t'=0}^{t-1}\gamma^{t'}r_{t'} \\
+&& \nabla_{\theta} J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T \gamma^t G_t \nabla \log \pi_{\theta}(a_t|x_t;\theta)] \\
+&& G_t = \sum_{t'=t}^T \gamma^{t'-t}r_t 
 \end{IEEEeqnarray*}
 
-\begin{enumerate}
-\item Initialize policy weights $\pi(a|x;\theta)$
-\item Repeat:
-\begin{itemize}
-\item Generate an episode.
-\item For every timestep set $G_t$ to the return from step $t$.
-\item Update $\theta \leftarrow \theta + \eta \gamma^t G_t \nabla_{\theta} \log \pi(A_t|X_t;\theta)$
-\end{itemize}
-\end{enumerate}
-
-Vanilla policy search methods are slow. We can combine it with value function estimation (actor critic methods) to improve it. 
+Initialize policy weights $\pi(a|x;\theta)$. Repeat: Generate an episode. For every $t$ get $G_t$. Update $\theta \leftarrow \theta + \eta \gamma^t G_t \nabla_{\theta} \log \pi(A_t|X_t;\theta)$
 
 \subsection{Policy Gradient Theorem}
-Can represent policy gradients in terms of Q-function. Naturally suggests plugging in approximations of $Q$ for the action-value function. Actor-Critic algorithms combine a parametrized policy (actor) and a value function approx. (critic). This approximations are usually done using neural nets in Deep RL.
+$$
+\nabla_{\theta} J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[Q(x, a) \nabla\log\pi_{\theta}(a | x ; \theta)]
+$$
+
+Can use approximations for $Q$. Parametrized policy (actor) and value function approx (critic). Vanilla policy search methods are slow, actor-critic improves it. 
 
 \subsubsection{Online Actor Critic}
-TD-learning for the critic. Under some special conditions is guaranteed to improve. 
-
 \begin{IEEEeqnarray*}{rCl}
 \theta_{\pi} &\leftarrow & \theta_{\pi} + \eta_t Q(x, a; \theta_Q) \nabla \log \pi (a|x; \theta_{\pi}) \\
-\theta_{Q} &\leftarrow & \theta_{Q} \\ &-& \eta_t( Q(x, a; \theta_Q) - r -\gamma Q (x', \pi(x', \theta_{\pi}); \theta_{Q})) 
-\\ & & \nabla Q (a|x; \theta_{\pi})
+\theta_{Q} &\leftarrow & \theta_{Q} \\
+ &-& \eta_t( Q(x, a; \theta_Q) - r \\
+ &-& \gamma Q (x', \pi(x', \theta_{\pi}); \theta_{Q})) \nabla Q (a|x; \theta_{\pi})
 \end{IEEEeqnarray*}
 
 \subsection{Advantage Active Critique}
-Variance reduction via baseline (value function). This technique can be combined with Monte-Carlo. Algorithms: A2C, A3C, GAE/GAAC.
-
-$$
-\theta_{\pi} \leftarrow  \theta_{\pi} + (\eta_t Q(x, a; \theta_Q) - V(x; \theta_V)) \nabla \log \pi (a|x; \theta_{\pi}) \\
-$$
-
-\subsection{TRPO and PPO}
-Modern variants of policy gradient / actor critic methods. Trust-region policy optimization (TRPO). The intuition behind this is that it only optimizes in close by regions where the previously collected data is still valid. PPO is an effective heuristic variant.
+\begin{IEEEeqnarray*}{rCl}
+&& \theta_{\pi} \leftarrow  \theta_{\pi} + (\eta_t Q(x, a; \theta_Q) - V(x; \theta_V)) \\
+&& \nabla \log \pi (a|x; \theta_{\pi}) \\
+\end{IEEEeqnarray*}
 
 \subsection{Off-Policy Actor Critic}
-Our initial motivation was intractability of the max argument because of large action spaces. The maximization problem can be compiled into the one of training a prametrized policy. Then by using a differentiable approximation $Q$ and differentiable deterministic policy  $\pi$ we can use chain rule (backpropagation) to obtain stochastic gradients. In order to ensure exploration one can add action noise. One can also obtain gradients for reparametrizable stochastic policies ($a = \phi(x, \theta_{\pi}, \epsilon)$).
+Maximization $\rightarrow$ training param. policy. Gradients possible for both deterministic and stochastic parametrized policies.
 
 \begin{IEEEeqnarray*}{rCl}
-\underset{a}{\operatorname{max}} \; Q(x', a', \theta^{old}) &\approx &  Q(x', \pi (x'; \theta_{\pi}); \theta_Q^{old}) \\
-\nabla_{\theta} \hat{J}_{\mu}(\theta) &=&  \mathbb{E}_{x\sim \mu} [ \nabla_{\theta} Q(x, \pi (x; \theta); \theta_Q)]  \\
+&& \underset{a}{\operatorname{max}} \; Q(x', a', \theta^{old}) \approx  Q(x', \pi (x'; \theta_{\pi}); \theta_Q^{old}) \\
+&& \nabla_{\theta} \hat{J}_{\mu}(\theta) = \mathbb{E}_{x\sim \mu} [ \nabla_{\theta} Q(x, \pi (x; \theta); \theta_Q)]  \\
 && \nabla_{\theta_{\pi}} Q(x, \pi (x; \theta_{\pi}); \theta_Q) \\
-&=& \nabla_a Q(x,a) |_{a=\pi (x; \theta_{\pi})} \nabla_{\theta_{\pi}} \pi (x; \theta_{\pi})
+&& = \nabla_a Q(x,a) |_{a=\pi (x; \theta_{\pi})} \nabla_{\theta_{\pi}} \pi (x; \theta_{\pi})
 \end{IEEEeqnarray*}
-
-DDPG (deterministic policy gradients): combines DQN with reparametrization policy gradients. TD3: extension of DDPG to avoid maximization bias. SAC: variant of DDPG/TD3 for entropy regularized MDPs.
 
 \subsection{Model-based Deep RL}
-The primary appeal with model based techniques is that potentially they would be much more effective interacting with the environment. Learning a model can help dramatically reduce the sample complexity compared to model-free techniques (though not necessarily computational cost).
-
 \subsubsection{Planning in the known model}
-Plan over finite horizon (but for potentially infinite and known MDP's), carry out first action, then re-plan. Challenges (especially for large H): Local minima, Vanishing / exploding gradients. One limitation of this approach is that given a finite horizon we might still have no signal to follow. To solve this, one can use estimates of the value function to guide decision taking (the tail of the sum of the discounted rewards). 
-
-$$
-J(a_{t:t+H-1}) \triangleq \sum_{\tau = t}^{t+H-1} \gamma^{\tau - t}r_{\tau}(x_{\tau}(a_{t:\tau-1}), a_{\tau}) + \gamma^H V(x_{t+H})
-$$
-
-In the stochastic transition setting we can apply policy for the next $t$ time steps by choosing the sequence of actions that maximizes the expectation over the randomness in the model, but also re plan after each action (planning via model predictive control MPC). One common approach to do this is MC trajectory sampling since computing this expectation is usually hard. Otw its just function composiotion of how $x_{\tau}$ is determined by $a_{t:\tau-1}$ and $\epsilon_{t:\tau-1}$.
-
-We can also replace expensive online planning (re plan at each step) by offline training (optimizing) of a policy (deterministic or stochastic) that is fast to evaluate online. This leads to a generalization of DDPG where we don't absorve all the look ahead into the Q value but also include the discounted reward over the finite horizon $H$. This look-ahead helps policies improve much more rapidly, by using the model to anticipate consequence down the road. 
-
-$$
-J(\theta) =  \mathbb{E}_{x \sim \mu} [ \sum_{\tau = 0: H-1} \gamma^{\tau}r_{\tau} + \gamma^H Q(x_H, \pi (x_H; \theta); \theta_Q) | \theta] 
-$$
-
-\subsubsection{Unknown Dynamics}
-If we don’t know the dynamics and reward, can estimate them off-policy with standard supervised learning techniques where $(r_i, x_{i+1}) \sim f(x_i, a_i; \theta)$. 
-
-If we were to  model the dynamics as Gaussian through a NN, errors in the estimated model compound when planning over multiple time steps which can lead to very poor performance. Therefore there is a need for capturing uncertainty in the estimated model. We can do this by modeling $f$ as a GP of a BNN.
-
 \begin{IEEEeqnarray*}{rCl}
-&& \hat{J_H}(a_{t:t+H-1}) \\
-&=& \frac{1}{m} \sum_{i = 1}^m \sum_{\tau = t}^{t+H-1} \\
-&& \gamma^{\tau - t}r_{\tau}(x_{\tau}(a_{t:\tau-1}, \epsilon_{t:\tau-1}^{(i)}, f^{(i)}), a_{\tau}) + \gamma^H V(x_{t+H})
+J(a_{t:t+H-1}) &\triangleq & \sum_{\tau = t}^{t+H-1} \gamma^{\tau - t}r_{\tau}(x_{\tau}(a_{t:\tau-1}), a_{\tau}) \\
+&+& \gamma^H V(x_{t+H})
 \end{IEEEeqnarray*}
 
-\subsubsection{Greedy exploitation for model-based RL}
-PETS algorithm, using NN and moment matching instead of MC averaging. Event thou this algorithm does not explicitly encourage exploration it already performs very well. To encourage further exploration one can add Gaussian noise. 
+\subsubsection{Stochastic transition setting} 
+Choose the sequence of actions that maximizes the expectation over the randomness in the model, but also re plan after each action. Expectation estimated via MC sampling. 
 
-\begin{itemize}
-\item $D=[]$; prior $P(f) = P(f|[])$, then iterate the following:
-\item Plan new policy $\underset{\pi}{\operatorname{max}} \; \mathbb{E}_{f \sim P(\cdot|D)} J(\pi, f)$.
-\item Roll out $\pi$ and add collected data to D.
-\item Update posterior $P(f|D)$.
-\end{itemize}
+\subsubsection{Offline training}
+Optimizing a policy (deterministic or stochastic) that is fast to evaluate online. Look-ahead helps policies improve more rapidly, by anticipating consequence down the road. 
+
+\begin{IEEEeqnarray*}{rCl}
+J(\theta) &=& \mathbb{E}_{x \sim \mu} [ \sum_{\tau = 0: H-1} \gamma^{\tau}r_{\tau} \\
+&+& \gamma^H Q(x_H, \pi (x_H; \theta); \theta_Q) | \theta] 
+\end{IEEEeqnarray*}
+
+\subsubsection{Unknown Dynamics}
+\begin{IEEEeqnarray*}{rCl}
+&& \hat{J_H}(a_{t:t+H-1}) \\
+&=& \frac{1}{m} \sum_{i = 1}^m \sum_{\tau = t}^{t+H-1} \gamma^{\tau - t}r_{\tau}\\
+&& (x_{\tau}(a_{t:\tau-1}, \epsilon_{t:\tau-1}^{(i)}, f^{(i)}), a_{\tau}) + \gamma^H V(x_{t+H})
+\end{IEEEeqnarray*}
+
+\subsection{Greedy, Thompson and Optimistic Exploration}
+\subsubsection{Greedy}
+$D=[]$; prior $P(f) = P(f|[])$, then iterate the following: Plan new policy $\underset{\pi}{\operatorname{max}} \; \mathbb{E}_{f \sim P(\cdot|D)} J(\pi, f)$. Roll out $\pi$ and add collected data to D. Update posterior $P(f|D)$.
 
 \subsubsection{Thompson Sampling}
-\begin{itemize}
-\item $D=[]$; prior $P(f) = P(f|[])$, then iterate the following:
-\item Sample model from $f \sim P(\cdot, D)$
-\item Plan new policy $\underset{\pi}{\operatorname{max}} \; \mathbb{E}_{f \sim P(\cdot|D)} J(\pi, f)$.
-\item Roll out $\pi$ and add collected data to D.
-\item Update posterior $P(f|D)$.
-\end{itemize}
+Only difference is we sample the model $f \sim P(\cdot, D)$.
 
 \subsubsection{Optimistic Exploration}
-Consider a set $M(D)$ of models (MDP's) that are plausible given data $D$:
-
-\begin{itemize}
-\item $D=[]$; prior $P(f) = P(f|[])$, the iterate the following:
-\item Plan new policy $\underset{\pi}{\operatorname{max}} \; \underset{f \in M(D)}{\operatorname{max}} \; \mathbb{E_{f\sim P(\cdot|D)}} J(\pi, f)$.
-\item Roll out $\pi$ and add collected data to D.
-\item Update posterior $P(f|D)$.
-\end{itemize}
-
-In general, the joint maximization over $\pi$ and $f$ is very difficult but H-UCLR gets around this somehow, by adding desition variables that allow you to "control your luck", e.g. get to states with higher rewards. This algorithm outperforms Thomson sampling and PETS specially in constrained problems, since these contains disincentive exploration. 
+Main diff. is we plan new policy $\underset{\pi}{\operatorname{max}} \; \underset{f \in M(D)}{\operatorname{max}} \; \mathbb{E}_{f \sim P(\cdot|D)} J(\pi, f)$. 
 
 \end{multicols}
 \end{document}

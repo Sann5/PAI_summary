@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.18)  2 FEB 2022 15:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.18)  3 FEB 2022 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -509,130 +509,85 @@ LaTeX Info: Redefining \nameref on input line 37.
 \makeMPintoPDFobject=\count306
 \everyMPtoPDFconversion=\toks31
 )
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 45.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
-
- []
-
-
-Overfull \hbox (20.09218pt too wide) in alignment at lines 177--184
+Overfull \hbox (6.97855pt too wide) in alignment at lines 112--120
  [] [] [] [][]
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 200.
+(hyperref)                than one, level fixed on input line 136.
 
 
-Overfull \hbox (8.96236pt too wide) in alignment at lines 223--229
+Overfull \hbox (8.96236pt too wide) in alignment at lines 159--165
+ [] [] [] [][]
+ []
+
+
+Overfull \hbox (10.71404pt too wide) in alignment at lines 168--172
  [] [] [] [][]
  []
 
 [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (10.71404pt too wide) in alignment at lines 232--236
+Overfull \hbox (1.53601pt too wide) in alignment at lines 222--227
  [] [] [] [][]
  []
 
 
-Overfull \hbox (1.53601pt too wide) in alignment at lines 286--291
+Overfull \hbox (9.47217pt too wide) in alignment at lines 259--264
  [] [] [] [][]
  []
 
 
-Overfull \hbox (9.47217pt too wide) in alignment at lines 323--328
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 285.
+
+
+Overfull \hbox (3.89688pt too wide) in alignment at lines 288--292
  [] [] [] [][]
  []
 
 
-Overfull \hbox (36.07738pt too wide) in alignment at lines 340--347
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+\T1/cmr/m/n/10.95 Uncertainty sam-pling: $\OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/
+10.95 =
+ []
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 306.
+
+
+Overfull \hbox (4.05437pt too wide) in alignment at lines 320--323
  [] [] [] [][]
  []
 
 [2]
-Overfull \hbox (60.01369pt too wide) in alignment at lines 367--371
- [] [] [] [][]
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
+\T1/cmr/m/n/10.95 (e.g., ran-dom) pol-icy $\OML/cmm/m/it/10.95 ^^Y$\T1/cmr/m/n/
+10.95 . Com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--387
-[][]\T1/cmr/bx/n/10.95 Improvement Based Ac-qui-si-tion
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
+\T1/cmr/m/n/10.95 pute $\OML/cmm/m/it/10.95 V[]$\T1/cmr/m/n/10.95 . Com-pute gr
+eedy pol-
  []
 
 
-Overfull \hbox (34.47668pt too wide) detected at line 400
-\OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/10.95 = [] \U/msb/m/n/10.95 E[]\OT1/cmr/m/
-n/10.95 [\OML/cmm/m/it/10.95 max\OT1/cmr/m/n/10.95 (0\OML/cmm/m/it/10.95 ; f[]\
-OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.9
-5 ^^@ \OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 )]
- []
-
-
-Overfull \hbox (45.86371pt too wide) in alignment at lines 409--416
- [] [] [] [][]
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
-[]\T1/cmr/m/n/10.95 Compute greedy pol-icy
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
-\OML/cmm/m/it/10.95 ^^M [][] P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OMS/c
-msy/m/n/10.95 j\OML/cmm/m/it/10.95 x; ^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
-5 x\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 V\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/
-10.95 x[]\OT1/cmr/m/n/10.95 )$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-[]\T1/cmr/m/n/10.95 For each $\OML/cmm/m/it/10.95 x; a$\T1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; a\OT1/cmr/m/n
-/10.95 ) = \OML/cmm/m/it/10.95 r\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; a\OT
-1/cmr/m/n/10.95 ) +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
-[]\T1/cmr/m/n/10.95 For each $\OML/cmm/m/it/10.95 x$\T1/cmr/m/n/10.95 , $\OML/c
-mm/m/it/10.95 V[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) 
-=
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
-[]\T1/cmr/m/n/10.95 Break if $[] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 V[]\O
-T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95
- ^^@
- []
-
-
-Overfull \hbox (44.10425pt too wide) in alignment at lines 457--462
- [] [] [] [][]
- []
-
-[4]
-Overfull \hbox (6.72255pt too wide) detected at line 520
+Overfull \hbox (6.72255pt too wide) detected at line 397
 \OML/cmm/m/it/10.95 l[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/
 10.95 ; \OML/cmm/m/it/10.95 x; x[]; r\OT1/cmr/m/n/10.95 ) = [](\OML/cmm/m/it/10
 .95 V\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^R\OT1/cmr/m/n/10.95 ) \OMS/cm
@@ -642,139 +597,59 @@ m/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 ))[]
  []
 
 
-Overfull \hbox (61.25385pt too wide) in alignment at lines 525--529
+Overfull \hbox (5.75615pt too wide) in alignment at lines 444--451
+ [] [] [] [][]
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
+[]\T1/cmr/m/n/10.95 Can use ap-prox-i-ma-tions for $\OML/cmm/m/it/10.95 Q$\T1/c
+mr/m/n/10.95 .
+ []
+
+
+Overfull \hbox (6.3222pt too wide) in alignment at lines 488--491
  [] [] [] [][]
  []
 
 
-Overfull \hbox (76.75098pt too wide) in alignment at lines 536--542
+Overfull \hbox (10.91037pt too wide) in alignment at lines 505--509
  [] [] [] [][]
  []
 
-
-Overfull \hbox (57.27266pt too wide) detected at line 548
-\OML/cmm/m/it/10.95 L\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10
-.95 ) = [](\OML/cmm/m/it/10.95 Q\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; a; ^
-^R\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 r \OMS/cmsy/
-m/n/10.95 ^^@ \OML/cmm/m/it/10.95 ^^M[] Q\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
-5 x[]; a[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 ))[]
-
- []
-
-
-Overfull \hbox (66.76956pt too wide) in alignment at lines 568--574
- [] [] [] [][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 582--583
-[]\T1/cmr/m/n/10.95 Update $\OML/cmm/m/it/10.95 ^^R \OMS/cmsy/m/n/10.95   \OML/
-cmm/m/it/10.95 ^^R \OT1/cmr/m/n/10.95 +
- []
-
-
-Overfull \hbox (27.98787pt too wide) in alignment at lines 594--598
- [] [] [] [][]
- []
-
-
-Overfull \hbox (41.6122pt too wide) detected at line 605
-\OML/cmm/m/it/10.95 ^^R[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 ^^R[] \OT1/
-cmr/m/n/10.95 + (\OML/cmm/m/it/10.95 ^^Q[]Q\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
-.95 x; a\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 ) \OMS
-/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 V\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
-5 x\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 ))\OMS/cmsy
-/m/n/10.95 r [] \OML/cmm/m/it/10.95 ^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
-a\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/1
-0.95 ^^R[]\OT1/cmr/m/n/10.95 )[] 
- []
-
-[5]
-Overfull \hbox (49.60555pt too wide) in alignment at lines 613--618
- [] [] [] [][]
- []
-
-
-Overfull \hbox (70.5902pt too wide) detected at line 630
-\OML/cmm/m/it/10.95 J\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a[]\OT1/cmr/m/n/10
-.95 ) \U/msa/m/n/10.95 , [] \OML/cmm/m/it/10.95 ^^M[]r[]\OT1/cmr/m/n/10.95 (\OM
-L/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a[]\OT1/cmr/m/n/10.
-95 )\OML/cmm/m/it/10.95 ; a[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 ^^M[]V\
-OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )
- []
-
-
-Overfull \hbox (54.03134pt too wide) detected at line 638
-\OML/cmm/m/it/10.95 J\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10
-.95 ) = \U/msb/m/n/10.95 E[]\OT1/cmr/m/n/10.95 [[] \OML/cmm/m/it/10.95 ^^M[]r[]
- \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^M[]Q\OT1/cmr/m/n/10.95 (\OML/cmm/m/
-it/10.95 x[]; ^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 
-; \OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 ); \OML/cmm/m/it/10.95 ^^R[]\OT1/cm
-r/m/n/10.95 )\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 ]
- []
-
-
-Overfull \hbox (42.2005pt too wide) in alignment at lines 645--649
- [] [] [] [][]
- []
-
-
-Overfull \hbox (11.71747pt too wide) in paragraph at lines 656--657
-[]\T1/cmr/m/n/10.95 Plan new pol-icy $[] \U/msb/m/n/10.95 E[]\OML/cmm/m/it/10.9
-5 J\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^Y; f\OT1/cmr/m/n/10.95 )$\T1/cmr/m
-/n/10.95 . 
- []
-
-
-Overfull \hbox (11.71747pt too wide) in paragraph at lines 665--666
-[]\T1/cmr/m/n/10.95 Plan new pol-icy $[] \U/msb/m/n/10.95 E[]\OML/cmm/m/it/10.9
-5 J\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^Y; f\OT1/cmr/m/n/10.95 )$\T1/cmr/m
-/n/10.95 . 
- []
-
-
-Overfull \hbox (45.92737pt too wide) in paragraph at lines 675--676
-[]\T1/cmr/m/n/10.95 Plan new pol-icy $[] [] []\OML/cmm/m/it/10.95 J\OT1/cmr/m/n
-/10.95 (\OML/cmm/m/it/10.95 ^^Y; f\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n/10.95 . 
- []
-
-[6] [7] (./cheet_sheet.aux)
+[4] (./cheet_sheet.aux)
 Package rerunfilecheck Info: File `cheet_sheet.out' has not changed.
-(rerunfilecheck)             Checksum: 3154361E63A3EE20F323EF7491338290;11516.
+(rerunfilecheck)             Checksum: A32B124E012446CC367093D7C2857A85;10539.
  ) 
 Here is how much of TeX's memory you used:
- 10637 strings out of 478994
- 152836 string characters out of 5858183
- 512596 words of memory out of 5000000
- 27894 multiletter control sequences out of 15000+600000
- 417350 words of font info for 63 fonts, out of 8000000 for 9000
+ 10595 strings out of 478994
+ 152420 string characters out of 5858183
+ 511862 words of memory out of 5000000
+ 27878 multiletter control sequences out of 15000+600000
+ 414239 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,13n,74p,556b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<
-/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
-sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><
+ 71i,12n,74p,465b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></
-usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
-ocal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/t
-exlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
-live/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
-/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
-ocal/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/loc
-al/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local
-/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/t
-exlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on cheet_sheet.pdf (7 pages, 293395 bytes).
+local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
+/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texli
+ve/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/tex
+live/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
+/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/t
+exlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/tex
+live/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texli
+ve/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on cheet_sheet.pdf (4 pages, 249984 bytes).
 PDF statistics:
- 434 PDF objects out of 1000 (max. 8388607)
- 401 compressed objects within 5 object streams
- 87 named destinations out of 1000 (max. 500000)
- 569 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 372 PDF objects out of 1000 (max. 8388607)
+ 346 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 529 words of extra memory for PDF output out of 10000 (max. 10000000)
 
