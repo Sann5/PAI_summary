@@ -41,6 +41,44 @@
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
 
+
+\section{Math}
+\subsubsection{Bayes Theorem}
+\begin{IEEEeqnarray*}{rCl}
+&&P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)} \\
+&&P(X, Y \mid Z) = \frac{P(X,Y,Z)}{P(Z)}
+\end{IEEEeqnarray*}
+
+\subsection{Rules for the Mean}
+\begin{IEEEeqnarray*}{rCl}
+E(c) &=& c \\
+E(X+c) &=& E(X)+c \\
+E(cX ) &=& cE(X) \\
+E(X+Y) &=& E(X)+E(Y)
+\end{IEEEeqnarray*}
+
+\subsection{Rules for the Variance}
+\begin{IEEEeqnarray*}{rCl}
+Var(c) &=& 0 \\
+Var(X+c) &=& Var(X) \\
+Var(cX) &=& c^2Var(X)) \\
+Var(X \pm Y) &=& Var(X) + Var(Y) \\
+&\pm & 2Cov(X,Y) \\
+Var(X) &=& \mathbb{E}[(X-\mathbb{E}[X])^2]
+\end{IEEEeqnarray*}
+
+\subsection{Univariate Gaussian}
+$f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}$\\
+
+\subsection{Multivariate Gaussian}
+\begin{IEEEeqnarray*}{rCl}
+&& f_{\mathbf {X} }(x_{1},\ldots ,x_{k})={\frac {1}{\sqrt {(2\pi )^{k}det({\boldsymbol {\Sigma }})}}} \\
+&& e^{\left(-{\frac {1}{2}}({\mathbf {x} }-{\boldsymbol {\mu }})^{\mathrm {T} }{\boldsymbol {\Sigma }}^{-1}({\mathbf {x} }-{\boldsymbol {\mu }})\right)}
+\end{IEEEeqnarray*}
+
+\subsection{Univariate Laplacian}
+$f(x)={\frac {1}{2b}}e^{\left(-{\frac {|x-\mu |}{b}}\right)}$
+
 \section{Bayesian Linear Regression}
 \begin{IEEEeqnarray*}{rCl}
 p(w|X,y) &=& \mathcal{N}(w;\bar{\mu}, \bar{\Sigma}) \\

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.18)  3 FEB 2022 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.18)  5 FEB 2022 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -509,85 +509,95 @@ LaTeX Info: Redefining \nameref on input line 37.
 \makeMPintoPDFobject=\count306
 \everyMPtoPDFconversion=\toks31
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 
- (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 46.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (6.97855pt too wide) in alignment at lines 112--120
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+
+Overfull \hbox (6.97855pt too wide) in alignment at lines 150--158
  [] [] [] [][]
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 136.
+(hyperref)                than one, level fixed on input line 174.
 
 
-Overfull \hbox (8.96236pt too wide) in alignment at lines 159--165
+Overfull \hbox (8.96236pt too wide) in alignment at lines 197--203
  [] [] [] [][]
  []
 
 
-Overfull \hbox (10.71404pt too wide) in alignment at lines 168--172
+Overfull \hbox (10.71404pt too wide) in alignment at lines 206--210
  [] [] [] [][]
  []
 
 [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (1.53601pt too wide) in alignment at lines 222--227
+Overfull \hbox (1.53601pt too wide) in alignment at lines 260--265
  [] [] [] [][]
  []
 
 
-Overfull \hbox (9.47217pt too wide) in alignment at lines 259--264
+Overfull \hbox (9.47217pt too wide) in alignment at lines 297--302
  [] [] [] [][]
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 285.
+(hyperref)                than one, level fixed on input line 323.
 
 
-Overfull \hbox (3.89688pt too wide) in alignment at lines 288--292
+Overfull \hbox (3.89688pt too wide) in alignment at lines 326--330
  [] [] [] [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
 \T1/cmr/m/n/10.95 Uncertainty sam-pling: $\OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/
 10.95 =
  []
 
+[2]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 306.
+(hyperref)                than one, level fixed on input line 344.
 
 
-Overfull \hbox (4.05437pt too wide) in alignment at lines 320--323
+Overfull \hbox (4.05437pt too wide) in alignment at lines 358--361
  [] [] [] [][]
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 353--354
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 \T1/cmr/m/n/10.95 (e.g., ran-dom) pol-icy $\OML/cmm/m/it/10.95 ^^Y$\T1/cmr/m/n/
 10.95 . Com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--354
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 \T1/cmr/m/n/10.95 pute $\OML/cmm/m/it/10.95 V[]$\T1/cmr/m/n/10.95 . Com-pute gr
 eedy pol-
  []
 
 
-Overfull \hbox (6.72255pt too wide) detected at line 397
+Overfull \hbox (6.72255pt too wide) detected at line 435
 \OML/cmm/m/it/10.95 l[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/
 10.95 ; \OML/cmm/m/it/10.95 x; x[]; r\OT1/cmr/m/n/10.95 ) = [](\OML/cmm/m/it/10
 .95 V\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^R\OT1/cmr/m/n/10.95 ) \OMS/cm
@@ -596,60 +606,64 @@ sy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 r \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10
 m/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 ))[]
  []
 
-
-Overfull \hbox (5.75615pt too wide) in alignment at lines 444--451
+[3]
+Overfull \hbox (5.75615pt too wide) in alignment at lines 482--489
  [] [] [] [][]
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
 []\T1/cmr/m/n/10.95 Can use ap-prox-i-ma-tions for $\OML/cmm/m/it/10.95 Q$\T1/c
 mr/m/n/10.95 .
  []
 
 
-Overfull \hbox (6.3222pt too wide) in alignment at lines 488--491
+Overfull \hbox (6.3222pt too wide) in alignment at lines 526--529
  [] [] [] [][]
  []
 
 
-Overfull \hbox (10.91037pt too wide) in alignment at lines 505--509
+Overfull \hbox (10.91037pt too wide) in alignment at lines 543--547
  [] [] [] [][]
  []
 
 [4] (./cheet_sheet.aux)
 Package rerunfilecheck Info: File `cheet_sheet.out' has not changed.
-(rerunfilecheck)             Checksum: A32B124E012446CC367093D7C2857A85;10539.
+(rerunfilecheck)             Checksum: 485DC45EEBBA9D37FA7261DFB5EDBDFC;11540.
  ) 
 Here is how much of TeX's memory you used:
- 10595 strings out of 478994
- 152420 string characters out of 5858183
- 511862 words of memory out of 5000000
- 27878 multiletter control sequences out of 15000+600000
- 414239 words of font info for 53 fonts, out of 8000000 for 9000
+ 10627 strings out of 478994
+ 152780 string characters out of 5858183
+ 512036 words of memory out of 5000000
+ 27894 multiletter control sequences out of 15000+600000
+ 417009 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,12n,74p,465b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,13n,74p,465b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
+sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><
 /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
-/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
-xlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texli
-ve/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/tex
-live/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
-/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/t
-exlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/tex
-live/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texli
-ve/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on cheet_sheet.pdf (4 pages, 249984 bytes).
+local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></
+usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
+l/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/t
+exlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
+live/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
+/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
+ocal/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/loc
+al/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local
+/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/t
+exlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on cheet_sheet.pdf (4 pages, 283886 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
- 346 compressed objects within 4 object streams
- 71 named destinations out of 1000 (max. 500000)
- 529 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 418 PDF objects out of 1000 (max. 8388607)
+ 388 compressed objects within 4 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 585 words of extra memory for PDF output out of 10000 (max. 10000000)
 
