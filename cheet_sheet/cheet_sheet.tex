@@ -12,8 +12,8 @@
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
     { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
 	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
-		{\geometry{top=.1cm,left=.1cm,right=.1cm,bottom=.1cm} }
-		{\geometry{top=.1cm,left=.1cm,right=.1cm,bottom=.1cm} }
+		{\geometry{top=.5cm,left=.5cm,right=.5cm,bottom=.5cm} }
+		{\geometry{top=.5cm,left=.5cm,right=.5cm,bottom=.5cm} }
 	}
 \pagestyle{empty}
 \makeatletter
@@ -319,20 +319,6 @@ J(\theta) &\approx & \frac{1}{m} \sum_{i=1}^m r(\tau^{(i)}) \\
 && \nabla_{\theta} J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T \gamma^t G_t \nabla \log \pi_{\theta}(a_t|x_t;\theta)] \\
 && G_t = \sum_{t'=t}^T \gamma^{t'-t} r_{t'} 
 \end{IEEEeqnarray*}
-Initialize policy weights $\pi(a|x;\theta)$. Repeat: Generate an episode. For every $t$ get $G_t$. Update $\theta \leftarrow \theta + \eta \gamma^t G_t \nabla_{\theta} \log \pi(A_t|X_t;\theta)$
-
-\subsection{Policy Gradient Theorem}
-$$
-\nabla_{\theta} J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[Q(x, a) \nabla\log\pi_{\theta}(a | x ; \theta)]
-$$
-
-\subsubsection{Online Actor Critic}
-\begin{IEEEeqnarray*}{rCl}
-\theta_{\pi} &\leftarrow & \theta_{\pi} + \eta_t Q(x, a; \theta_Q) \nabla \log \pi (a|x; \theta_{\pi}) \\
-\theta_{Q} &\leftarrow & \theta_{Q} - \eta_t( Q(x, a; \theta_Q) - r \\
- &-& \gamma Q (x', \pi(x', \theta_{\pi}); \theta_{Q})) \nabla Q (a|x; \theta_{\pi})
-\end{IEEEeqnarray*}
-
 
 \end{multicols}
 \end{document}
