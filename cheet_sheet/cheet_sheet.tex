@@ -12,8 +12,8 @@
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
     { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
 	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
-		{\geometry{top=.5cm,left=.5cm,right=.5cm,bottom=.5cm} }
-		{\geometry{top=.5cm,left=.5cm,right=.5cm,bottom=.5cm} }
+		{\geometry{top=.2cm,left=.2cm,right=.2cm,bottom=.2cm} }
+		{\geometry{top=.2cm,left=.2cm,right=.2cm,bottom=.2cm} }
 	}
 \pagestyle{empty}
 \makeatletter
@@ -43,22 +43,12 @@
 
 
 \section{Math}
-\subsubsection{Bayes Theorem}
-\begin{IEEEeqnarray*}{rCl}
-&&P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)} \\
-&&P(X, Y \mid Z) = \frac{P(X,Y,Z)}{P(Z)}
-\end{IEEEeqnarray*}
-
-\subsection{Rules for the Mean}
+\subsection{Rules for the Mean and Variance}
 \begin{IEEEeqnarray*}{rCl}
 E(c) &=& c \\
 E(X+c) &=& E(X)+c \\
 E(cX ) &=& cE(X) \\
-E(X+Y) &=& E(X)+E(Y)
-\end{IEEEeqnarray*}
-
-\subsection{Rules for the Variance}
-\begin{IEEEeqnarray*}{rCl}
+E(X+Y) &=& E(X)+E(Y) \\
 Var(c) &=& 0 \\
 Var(X+c) &=& Var(X) \\
 Var(cX) &=& c^2Var(X)) \\
@@ -102,7 +92,6 @@ w_{MAP} &=& (I\frac{\sigma_n^2}{\sigma_p^2} + X^TX)^{-1}X^Ty
 
 \section{Gaussian Proccesess}
 $A \in \mathbb{R}^{m \times n}$,  $f_A$ is a collection of R.V s.t. $f_A \sim \mathcal{N}(\mu_A, K_{AA})$.
-
 \begin{equation*}
   K_{AA} = \begin{bmatrix}
     k(x_1, x_1) & \ldots & k(x_1, x_m) \\
@@ -110,7 +99,6 @@ $A \in \mathbb{R}^{m \times n}$,  $f_A$ is a collection of R.V s.t. $f_A \sim \m
     k(x_m, x_1) & \ldots & k_(x_m, x_m)
   \end{bmatrix}
 \end{equation*}
-
 \begin{equation*}
   \mu_{A} = \begin{bmatrix}
     \mu(x_1)  \\
@@ -119,26 +107,18 @@ $A \in \mathbb{R}^{m \times n}$,  $f_A$ is a collection of R.V s.t. $f_A \sim \m
   \end{bmatrix}
 \end{equation*}
 
-\subsection{Linear Kernel}
-$k(x,x') = \lambda x^T x'$. For more than one new point $k(x, x')$ is a matrix like $K_{AA}$.
-
+For more than one new point $k(x, x')$ is a matrix like $K_{AA}$.
 \begin{IEEEeqnarray*}{rCl}
 \mu'(x) &=& \mu(x) \\
 &+& k_{x,A}(K_{AA}+\sigma_n^2I)^{-1}(y_A - \mu_A)\\
 k'(x, x') &=& k(x, x') \\
 &-& k_{x, A}(K_{AA}+\sigma_n^2I)^{-1}k_{x', A}^T \\
-K_{AA} &=& \lambda XX^T \\
   k_{x, A} &=& 
  \begin{bmatrix}
     k(x_1, x)  \\
     \vdots  \\
     k(x_m, x)
-  \end{bmatrix} = \lambda
-  \begin{bmatrix}
-    x_1^T x  \\
-    \vdots  \\
-    x_m^T x 
-  \end{bmatrix}
+  \end{bmatrix} 
 \end{IEEEeqnarray*}
 
 \subsubsection{Online GP's}
@@ -146,7 +126,6 @@ $K_{AA} = k(x_{t+1}, x_{t+1})$ then calculate the posterior for a new arbitrary 
 
 \subsection{Maximize the marginal likelihood of the data} 
 $K(\theta)$ is the Kernel matrix. 
-
 \begin{IEEEeqnarray*}{lll}
 && \underset{\theta}{\operatorname{argmax}} \; \int p(y_{train} \mid f, x_{train}, \theta) p(f \mid \theta) df \\
 &=& \underset{\theta}{\operatorname{argmax}} \; \int \mathcal{N}(f(x), \sigma_n^2) \mathcal{N}(0, K(\theta)) df \\
@@ -159,7 +138,6 @@ $K(\theta)$ is the Kernel matrix.
 
 \section{Laplace Approximation}
 In the context of Log. Regression. 
-
 \begin{IEEEeqnarray*}{rCl}
 q(\theta) &=& \mathcal{N}(\hat{w}, \Lambda^{-1}) \\
 \hat{w} &=& \underset{w}{\operatorname{argmax}} \; p(w \mid y) \\
@@ -177,6 +155,8 @@ q(\theta) &=& \mathcal{N}(\hat{w}, \Lambda^{-1}) \\
 &=& \int p(y^* \mid x^*, w) p(w\mid X,y) dw\\
 &=& \int p(y^* \mid x^*, w) q_{\lambda}(w) dw \\
 &=& \int p(y^* \mid f^*) p(f^*\mid w) q_{\lambda}(w) dw df^* \\
+\end{IEEEeqnarray*}
+\begin{IEEEeqnarray*}{rCl}
 && q_{\lambda}(w) \sim N(\mu, \Sigma) \\
 && p(f^*\mid w) = x^* \\
 && \int p(f^* \mid w) q_{\lambda}(w) dw\\
@@ -189,11 +169,11 @@ q(\theta) &=& \mathcal{N}(\hat{w}, \Lambda^{-1}) \\
 \section{Variational Inference}
 \subsection{KL divergence} 
 Reverse KL div: $KL(q||p)$. Forward KL: $KL(p||q)$ (gives more conservative variance estimates).
-
 $$
 KL(q||p) = \int q(\theta) \log\frac{q(\theta)}{p(\theta)} d\theta
 $$
 
+\subsubsection{For Gaussians} 
 \begin{IEEEeqnarray*}{rCl}
 && KL(p||q) \\
 &=& \frac{1}{2} \big( tr(\Sigma_1^{-1}\Sigma_0) + (\mu_1 - \mu_0)^T \Sigma_1^{-1} (\mu_1 - \mu_0) \\ 
@@ -222,21 +202,17 @@ $$
 \section{MCMC methods}
 \subsection{Hoeffding’s inequality} 
 Given $f$ is bounded between $[0, C]$:
-
 \begin{IEEEeqnarray*}{rCl}
-P(|\mathbb{E}_P[f(X)] - \frac{1}{N}\sum_{i=1}^N f(x_i)| > \epsilon) \leq \\
-2\exp^{\frac{-2N\epsilon^2}{C^2}}
+&& P(|\mathbb{E}_P[f(X)] - \frac{1}{N}\sum_{i=1}^N f(x_i)| > \epsilon) \leq \\
+&& 2\exp^{\frac{-2N\epsilon^2}{C^2}}
 \end{IEEEeqnarray*}
-
 Error less than $\epsilon$ with probability $1 - \delta$:
-
 $$
 2\exp^{\frac{-2N\epsilon^2}{C^2}} \leq \delta 
 $$
 
 \subsection{MH-MCMC} 
 DBE: $Q(x)P(x'|x) = Q(x')P(x|x')$. 
-
 \begin{IEEEeqnarray*}{rCl}
 && R(X'|X = x) \\
 && X_{t+1} = x', P(X_{t+1} = x') = \alpha \\
@@ -250,10 +226,10 @@ DBE: $Q(x)P(x'|x) = Q(x')P(x|x')$.
 && \alpha = min \; \big\{1, \frac{R(x|x')}{R(x'|x)} e^{f(x)-f(x')} \big\}
 \end{IEEEeqnarray*}
 
-If $R(x'|x) = \mathcal{N}(x, \tau I)$ then $\alpha = min \; \big\{1, e^{f(x)-f(x')} \big\}$. Guaranteed efficient convergence for log-concave densities (e.g. $f$ is convex).
+If $R(x'|x) = \mathcal{N}(x, \tau I)$ then $\alpha = min \; \big\{1, e^{f(x)-f(x')} \big\}$. Guaranteed efficient convergence for log-concave densities ($f$ convex).
 
 \subsection{Improved Proposals}
-Metropolis adjusted Langevin Algo (gradient to prefer proposals into regions with higher density), Stochastic Gradient Langevin Dynamics (stochastic gradient), Hamiltonian Monte Carlo (momentum).
+Metropolis adjusted Langevin (gradient for proposals), Stochastic Gradient Langevin Dynamics, Hamiltonian Monte Carlo (momentum).
 
 \section{Bayesian Neural Networks}
 \subsection{MAP estimation with BNN's}
@@ -276,24 +252,20 @@ Metropolis adjusted Langevin Algo (gradient to prefer proposals into regions wit
 
 \subsection{Uncertainty for Gaussians}
 \begin{IEEEeqnarray*}{rCl}
-&& Var[y^\star | X, y, x^\star] = \mathbb{E}[Var[y^\star | x^\star, \theta]]  \\
-&& + Var[\mathbb{E}[y^\star | x^\star, \theta]] \\
+&& Var[y^\star | X, y, x^\star] = \underset{aleat}{\mathbb{E}[Var[y^\star | x^\star, \theta]]}  \\
+&& + \underset{epis}{Var[\mathbb{E}[y^\star | x^\star, \theta]]} \\
 & &\approx \frac{1}{m} \sum_{j=1}^m \sigma^2(x^\star, \theta^{(j)}) \\
 && + \frac{1}{m} \sum_{j=1}^m \big( \mu(x^\star, \theta^{(j)}) - \bar{\mu}(x^\star)\big)^2 
 \end{IEEEeqnarray*}
 
-\subsection{MCMC in BNN's}
+\subsection{MC Dropout and Probabilistic Ensembles}
 $$
 p(y^* \mid x^*, X, y) \approx \frac{1}{m} \sum_{j=1}^m p(y^* \mid x^*, \theta^{(j)})
 $$
 
-\subsubsection{Dropout and Probabilistic Ensembles} 
-$p(y^* \mid x^*, X, y) \approx \frac{1}{m} \sum_{j=1}^m p(y^* \mid x^*, \theta^{(j)})$
-
 \subsection{Calibration}
 \subsubsection{Reliability Diagrams}
 If well calibrated $freq(B_m) = conf(B_m)$ for all bins.
-
 \begin{IEEEeqnarray*}{rCl}
 && freq(B_m) = \frac{1}{|B_m|} \sum_{i \in B_m} 1(y_i = 1) \\
 && conf(B_m) = \frac{1}{|B_m|} \sum_{i \in B_m} \hat{p}_i \\
@@ -310,7 +282,6 @@ NLL loss over the validation set when applied to the logits $z_i$, $\hat{q}_i = 
 
 \section{Active Learning}
 Given $Y = X + \epsilon$ and $\epsilon \sim \mathcal{N}(0, \sigma_n^2I)$.
-
 \begin{IEEEeqnarray*}{rCl}
 I(Y;X) &=& H(Y) - H(Y|X) \\
 &=& H(Y) - H(\epsilon) \\
@@ -322,7 +293,6 @@ I(Y;X) &=& H(Y) - H(Y|X) \\
 
 \subsubsection{Uncertainty Sampling}
 $S$ is the optimal set of observations, $S_t$ the greedy set. Following the same regression scheme as before. 
-
 \begin{IEEEeqnarray*}{rCl}
 && I(f(x_T), y_T) \geq \bigg(1 - \frac{1}{e} \bigg) \underset{|S| \leq T}{\operatorname{max}} \; I(f(x_S), y_S) \\
 && x_{t+1} = \underset{x}{\operatorname{argmax}} \; \mathbb{I}(f; y_x | y_{S_t}) \\ 
@@ -330,8 +300,7 @@ $S$ is the optimal set of observations, $S_t$ the greedy set. Following the same
 \end{IEEEeqnarray*}
 
 \subsection{Active Learning for Classification}
-Uncertainty sampling: $x_{t+1} = \operatorname{argmax}_x \; H(Y|x, X_t, Y_t)$. Even better, use approximate inference to estimate the MI and use it as selection criteria. 
-
+Uncertainty sampling: $x_{t+1} = \operatorname{argmax}_x \; H(Y|x, X_t, Y_t)$. Better to use approximate inference to estimate MI:
 \begin{IEEEeqnarray*}{rCl}
 x_{t+1} &=& \underset{x \in D}{\operatorname{argmax}} \; \mathbb{I}(\theta; y_{t+1} | Y_t, X_t, x_{t+1}) \\
 &=& H(y_{t+1} | Y_t, X_t, x_{t+1}) \\
@@ -347,66 +316,42 @@ $$
 $$
 
 \subsubsection{Upper confidence sampling}
-$x_{t+1} = \underset{x \in D}{\operatorname{argmax}} \; \mu_{t}(x) + \beta_t \sigma_{t}(x)$. Convergence of the cumulative regret as a function of $\gamma_T = \underset{|S| <= T}{\operatorname{max}} \; I(f;y_S)$
-
-\subsubsection{Probability of Improvement}
-$$
-PI(x) = P(f(x) > f^*) = \Phi(\frac{\mu_{t}(x) - f^*}{\sigma_{t}(x)})
-$$
-
-\subsubsection{Expected Improvement}
-\begin{IEEEeqnarray*}{rCl}
-&& x_{t+1} = \\
-&&\underset{x \in D}{\operatorname{argmax}} \; \mathbb{E}_{f_{t}(x) \sim \mathcal{N}(\mu_{t}, \sigma_t)} [max(0, f_t(x) - f^*)]
-\end{IEEEeqnarray*}
+Convergence of the cumulative regret as a function of $\gamma_T = \underset{|S| \leq T}{\operatorname{max}} \; I(f;y_S)$
 
 \subsection{Thomson Sampling}
 Sample $\tilde{f} \sim \mathcal{P}(f | X_t, Y_t)$, and then $x_{t+1} \in \underset{x \in D}{\operatorname{argmax}} \; \tilde{f}(x)$.
 
 \section{Markov Decision Processes}
 \subsection{Expected Value of a Policy}
-For a determinnistic policy $\pi$ and a given state $x$.
+For a deterministic reward, some $\pi$ and state $x$:
 
 \begin{IEEEeqnarray*}{rCl}
-&& J(\pi | X_0 = x) \\
-&=& V^{\pi}(x) \\
+&& J(\pi | X_0 = x) = V^{\pi}(x) \\
 &=& \mathbb{E}[\sum_{t=0}^\infty \gamma^t r(X_t, \pi(X_t)) | X_0 = x] \\
-&=& r(x, \pi(x)) \\
-&+& \gamma \sum_{x'} P(x'|x, \pi(x)) \\
-&& \mathbb{E}[\sum_{t=0}^\infty \gamma^t r(X_t, \pi(X_t)) | X_0 = x'] \\
-&=& r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V^{\pi}(x')
-\end{IEEEeqnarray*}
-
-$\forall x$:
-
-\begin{IEEEeqnarray*}{rCl}
-V^{\pi} &=& r^{\pi} + \gamma T^{\pi}V^{\pi} \\
-V^{\pi} &=& (I - \gamma T^{\pi})^{-1}r^{\pi} \\
+&=& r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V^{\pi}(x') \\
+&& V^{\pi} = r^{\pi} + \gamma T^{\pi}V^{\pi} \\
+&& V^{\pi} = (I - \gamma T^{\pi})^{-1}r^{\pi} \\
 \end{IEEEeqnarray*}
 
 \subsubsection{Fixed Point Iteration} 
 Loop $T$ times s.t. $V^{\pi}_t = r^{\pi} + \gamma T^{\pi}V^{\pi}_{t-1}$. Computational advantages for sparse solutions. 
 
 \subsection{Policy Iteration}
-Convergence $\pi^\star$ in $O * (n^2m / (1-\gamma))$ iterations. Start with an arbitrary (e.g., random) policy $\pi$. Compute $V^{\pi}$. Compute greedy policy $\pi_V(x) = \underset{a}{\operatorname{argmax}} \; r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V(x')$  w.r.t. the previously computed $V^{\pi}$. Set $\pi \leftarrow \pi_V$.   
+Init. arbitrary (e.g., random) policy $\pi$. Compute $V^{\pi}$. Compute greedy policy $\pi_V(x) = \underset{a}{\operatorname{argmax}} \; r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V(x')$  w.r.t. the previously computed $V^{\pi}$. Set $\pi \leftarrow \pi_V$.   
 
 \subsection{Value Iteration}
-Initialize $V_0(x) = \underset{a}{\operatorname{max}} \; r(x, a)$. For $t = 1$ to $\infty$: For each $x, a$, $Q_t(x, a) = r(x, a) + \gamma \sum_{x'} P(x'|x, \pi(x))  V_{t-1}(x')$. For each  $x$, $V_t(x) = \underset{a}{\operatorname{max}} \; Q_t(x, a)$ Break if $\underset{x}{\operatorname{max}} \; |V_t(x) -V_{t-1}(x)| \le \epsilon$, otw repeat.
+Init $V_0(x) = \underset{a}{\operatorname{max}} \; r(x, a)$. For $t = 1$ to $\infty$: For each $x, a$, $Q_t(x, a) = r(x, a) + \gamma \sum_{x'} P(x'|x, \pi(x))  V_{t-1}(x')$. For each  $x$, $V_t(x) = \underset{a}{\operatorname{max}} \; Q_t(x, a)$ Break if $\underset{x}{\operatorname{max}} \; |V_t(x) -V_{t-1}(x)| \le \epsilon$, otw repeat.
 
 \section{POMDP's}
 New state has probability $P(X_{t+1} = x' | x_t, a_t)$ and we observe $y_t \sim P(Y_t | X_t  = x_t)$.
-
 \begin{IEEEeqnarray*}{rCl}
-&& b_{t+1}(x) \\ 
-&=& P(X_{t+1} = x' | y_{t+1}) \\
-&=&  \frac{1}{Z} \sum_{x'} b_t(x) P(X_{t+1} = x' | x', a_t) \\
+&& b_{t+1}(x) = P(X_{t+1} = x' | y_{t+1}) \\
+&& =  \frac{1}{Z} \sum_{x'} b_t(x) P(X_{t+1} = x' | x', a_t) \\
 && P (y_{t+1} | x) \\
-r(b_t, a_t) &=& \sum_x b_t(x) r(x, a_t)
+&& r(b_t, a_t) = \sum_x b_t(x) r(x, a_t)
 \end{IEEEeqnarray*}
 
 \section{Reinforcement Learning}
-Stationary Value Function:  $\forall \; t$, $V^{\star}_i(x) = V^{\star}_j(x)$. Stationary Policy: For a given state the optimal action is the same regardless of the time step at which the state is visited).
-
 \subsection{Model Based RL}
 \subsubsection{MLE}
 \begin{IEEEeqnarray*}{rCl}
@@ -415,28 +360,23 @@ Stationary Value Function:  $\forall \; t$, $V^{\star}_i(x) = V^{\star}_j(x)$. S
 \end{IEEEeqnarray*}
 
 \subsubsection{Rmax Algorithm}
-Initially: Add fairy tale state $x^{\star}$. Set $r(x, a) = Rmax$ for all states $x$ and actions $a$. Set $P(x^{\star} |x,a)=1$ for all $(x, a)$. Choose optimal policy for $r$ and $P$. Loop: Execute policy $\pi$. for each visited state action pair update $r(x, a)$. estimate transition probabilities $P(x' | x, a)$. if observed “enough” transitions / rewards. recompute policy $\pi$ according to current model $P$ and $r$.
+Initially: Add fairy tale state $x^{\star}$. Set $r(x, a) = Rmax$ for all states $x$ and actions $a$. Set $P(x^{\star} |x,a)=1$ for all $(x, a)$. Choose optimal policy for $r$ and $P$. Loop: Execute policy $\pi$. For each visited state action pair update $r(x, a)$. Estimate transition probabilities $P(x' | x, a)$. If observed “enough” transitions / rewards, recompute $\pi$.
 
 \subsection{Model Free RL}
-Estimate the value function directly.
-
 \subsubsection{TD-Learning}
-On-policy method. Estimate $V^{\pi}(x)$. Guarantees convergence conditional on $\alpha_t$.
-
+Guarantees convergence conditional on $\alpha_t$.
 $$
 \hat{V}^{\pi}(x) = (1 - \alpha_t)\hat{V}^{\pi}(x) + \alpha_t(r + \gamma \hat{V}^{\pi}(x'))
 $$
 
 \subsubsection{SGD on the squared loss}
 Old value estimates are labels/targets ($r + \gamma V(x'; \theta_{old}) = y$). Same insight applies for the $Q(x, a)$.
-
 $$
 l_2(\theta ; x, x', r) = \frac{1}{2}(V(x,\theta) - r - \gamma V(x'; \theta_{old}))^2
 $$
 
 \subsubsection{Q-learning}
-Off-policy. Estimate the optimal policy via some behavioral policy. Optimistic initialization possible (guaranteed convergence). General convergence guaranteed if $\forall \; (a, x)$ are visited infinitely many times. Otw trade off with epsilon greedy strategy.
-
+Estimate the optimal policy with some behavioral policy. Optimistic initialization possible (guaranteed convergence). General convergence if $\forall \; (a, x)$ are visited $\infty$ many times. Otw trade off with epsilon greedy strategy.
 \begin{IEEEeqnarray*}{rCl}
 && Q^{\star}(x, a) = r(x,a) \\
 &+& \gamma \sum_{x'} P(x' | x, a) V^{\star}(x') \\
@@ -444,29 +384,20 @@ Off-policy. Estimate the optimal policy via some behavioral policy. Optimistic i
 && Q^{\star}(x, a) \leftarrow (1 - \alpha_t)Q^{\star}(x, a) \\
 &+& \alpha_t(r + \gamma \underset{a'}{\operatorname{max}} \; Q^{\star}(x', a'))
 \end{IEEEeqnarray*}
-
 Unfeasible for continues state spaces because of memory requirement $\forall \; (a, x)$. 
 
 \subsubsection{Approximating value functions}
-Linear function approximation, where $\phi(x, a)$ is a set of hand designed features. 
-
+Linear function approximation, where $\phi(x, a)$ is a set of hand designed features. To reduce variance keep the target values constant across episodes (e.g. replay buffer or twin network, Vanilla DQN).
 \begin{IEEEeqnarray*}{rCl}
-\hat{Q}(x, a; \theta) &=& \theta^T \phi(x,a)\\
-l_2(\theta ; x, a, x', r) &=& \frac{1}{2}(Q(x, a, \theta) - r \\
-&-& \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}))^2 \\
-\delta &=& Q(x, a, \theta) - r \\
-&-& \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}) \\
-\theta &\leftarrow & \theta - \alpha_t \delta \nabla_{\theta} Q(x,a;\theta) \\
-\theta &\leftarrow & \theta - \alpha_t \delta \phi(x, a) \\
+&& \hat{Q}(x, a; \theta) = \theta^T \phi(x,a)\\
+&& l_2(\theta ; x, a, x', r) = \frac{1}{2}(Q(x, a, \theta) - r \\
+&& - \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}))^2 \\
+\delta &=& Q(x, a, \theta) - r - \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}) \\
+&& \theta \leftarrow \theta - \alpha_t \delta \nabla_{\theta} Q(x,a;\theta) \\
+&& \theta \leftarrow \theta - \alpha_t \delta \phi(x, a) \\
+&& L(\theta) = \sum_{(x, a, r, x') \in D} l_2(\theta ; x, a, x', r)
 \end{IEEEeqnarray*}
-
-To reduce variance keep the target values constant across episodes (e.g. replay buffer or twin network).
-
-\begin{IEEEeqnarray*}{rCl}
-L(\theta) &=& \sum_{(x, a, r, x') \in D}(Q(x, a, \theta) - r \\ &-& \gamma \underset{a'}{\operatorname{max}} \; Q(x', a'; \theta_{old}))^2
-\end{IEEEeqnarray*}
- 
-Double DQN avoids maximization bias (overconfidence about certain actions given the noise in the observations) by maximizing w.r.t. the current network instead of the old one. Nevertheless the maximization remains intractable for continues action spaces. 
+Double DQN avoids maximization bias (overconfidence about certain actions given the noise in the observations) by maximizing w.r.t. the current network instead of the old one. Maximization remains intractable for continues action spaces. 
 
 \subsection{Policy search methods}
 \begin{IEEEeqnarray*}{rCl}
@@ -485,16 +416,14 @@ J(\theta) &\approx & \frac{1}{m} \sum_{i=1}^m r(\tau^{(i)}) \\
 && \nabla \log \pi_{\theta}(a_t|x_t;\theta)] \\
 && b(\tau_{0:t-1}) = \sum_{t'=0}^{t-1}\gamma^{t'}r_{t'} \\
 && \nabla_{\theta} J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[\sum_{t=0}^T \gamma^t G_t \nabla \log \pi_{\theta}(a_t|x_t;\theta)] \\
-&& G_t = \sum_{t'=t}^T \gamma^{t'-t}r_t 
+&& G_t = \sum_{t'=t}^T \gamma^{t'-t} r_{t'} 
 \end{IEEEeqnarray*}
-
 Initialize policy weights $\pi(a|x;\theta)$. Repeat: Generate an episode. For every $t$ get $G_t$. Update $\theta \leftarrow \theta + \eta \gamma^t G_t \nabla_{\theta} \log \pi(A_t|X_t;\theta)$
 
 \subsection{Policy Gradient Theorem}
 $$
 \nabla_{\theta} J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[Q(x, a) \nabla\log\pi_{\theta}(a | x ; \theta)]
 $$
-
 Can use approximations for $Q$. Parametrized policy (actor) and value function approx (critic). Vanilla policy search methods are slow, actor-critic improves it. 
 
 \subsubsection{Online Actor Critic}
@@ -507,13 +436,12 @@ Can use approximations for $Q$. Parametrized policy (actor) and value function a
 
 \subsection{Advantage Active Critique}
 \begin{IEEEeqnarray*}{rCl}
-&& \theta_{\pi} \leftarrow  \theta_{\pi} + (\eta_t Q(x, a; \theta_Q) - V(x; \theta_V)) \\
+&& \theta_{\pi} \leftarrow  \theta_{\pi} + \eta_t (Q(x, a; \theta_Q) - V(x; \theta_V)) \\
 && \nabla \log \pi (a|x; \theta_{\pi}) \\
 \end{IEEEeqnarray*}
 
 \subsection{Off-Policy Actor Critic}
 Maximization $\rightarrow$ training param. policy. Gradients possible for both deterministic and stochastic parametrized policies.
-
 \begin{IEEEeqnarray*}{rCl}
 && \underset{a}{\operatorname{max}} \; Q(x', a', \theta^{old}) \approx  Q(x', \pi (x'; \theta_{\pi}); \theta_Q^{old}) \\
 && \nabla_{\theta} \hat{J}_{\mu}(\theta) = \mathbb{E}_{x\sim \mu} [ \nabla_{\theta} Q(x, \pi (x; \theta); \theta_Q)]  \\

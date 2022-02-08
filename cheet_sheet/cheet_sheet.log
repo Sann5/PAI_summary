@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.18)  5 FEB 2022 10:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.18)  8 FEB 2022 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -448,15 +448,15 @@ LaTeX Font Info:    ... okay on input line 37.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: landscape twoside 
-* h-part:(L,W,R)=(14.22636pt, 816.59412pt, 14.22636pt)
-* v-part:(T,H,B)=(14.22636pt, 569.05515pt, 14.22636pt)
+* h-part:(L,W,R)=(5.69046pt, 833.66592pt, 5.69046pt)
+* v-part:(T,H,B)=(5.69046pt, 586.12695pt, 5.69046pt)
 * \paperwidth=845.04684pt
 * \paperheight=597.50787pt
-* \textwidth=816.59412pt
-* \textheight=569.05515pt
-* \oddsidemargin=-58.04362pt
-* \evensidemargin=-58.04362pt
-* \topmargin=-95.04362pt
+* \textwidth=833.66592pt
+* \textheight=586.12695pt
+* \oddsidemargin=-66.57953pt
+* \evensidemargin=-66.57953pt
+* \topmargin=-103.57953pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=11.0pt
@@ -509,13 +509,9 @@ LaTeX Info: Redefining \nameref on input line 37.
 \makeMPintoPDFobject=\count306
 \everyMPtoPDFconversion=\toks31
 )
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 46.
-
 LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
 
-(/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
@@ -524,80 +520,56 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
 
-Overfull \hbox (6.97855pt too wide) in alignment at lines 150--158
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 124.
+
+
+Overfull \hbox (2.7106pt too wide) in alignment at lines 129--137
  [] [] [] [][]
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 174.
+(hyperref)                than one, level fixed on input line 152.
 
 
-Overfull \hbox (8.96236pt too wide) in alignment at lines 197--203
+Overfull \hbox (4.69441pt too wide) in alignment at lines 177--183
  [] [] [] [][]
  []
 
 
-Overfull \hbox (10.71404pt too wide) in alignment at lines 206--210
+Overfull \hbox (6.44609pt too wide) in alignment at lines 186--190
  [] [] [] [][]
  []
 
 [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (1.53601pt too wide) in alignment at lines 260--265
- [] [] [] [][]
- []
-
-
-Overfull \hbox (9.47217pt too wide) in alignment at lines 297--302
+Overfull \hbox (5.20422pt too wide) in alignment at lines 269--274
  [] [] [] [][]
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 323.
+(hyperref)                than one, level fixed on input line 294.
 
 
-Overfull \hbox (3.89688pt too wide) in alignment at lines 326--330
- [] [] [] [][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 \T1/cmr/m/n/10.95 Uncertainty sam-pling: $\OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/
 10.95 =
  []
 
-[2]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 344.
+(hyperref)                than one, level fixed on input line 313.
 
-
-Overfull \hbox (4.05437pt too wide) in alignment at lines 358--361
- [] [] [] [][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
-\T1/cmr/m/n/10.95 (e.g., ran-dom) pol-icy $\OML/cmm/m/it/10.95 ^^Y$\T1/cmr/m/n/
-10.95 . Com-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
-\T1/cmr/m/n/10.95 pute $\OML/cmm/m/it/10.95 V[]$\T1/cmr/m/n/10.95 . Com-pute gr
-eedy pol-
- []
-
-
-Overfull \hbox (6.72255pt too wide) detected at line 435
+[2]
+Overfull \hbox (2.4546pt too wide) detected at line 376
 \OML/cmm/m/it/10.95 l[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/
 10.95 ; \OML/cmm/m/it/10.95 x; x[]; r\OT1/cmr/m/n/10.95 ) = [](\OML/cmm/m/it/10
 .95 V\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^R\OT1/cmr/m/n/10.95 ) \OMS/cm
@@ -606,39 +578,39 @@ sy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 r \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10
 m/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 ))[]
  []
 
+
+Overfull \hbox (1.4882pt too wide) in alignment at lines 413--420
+ [] [] [] [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--428
+\T1/cmr/m/n/10.95 Can use ap-prox-i-ma-tions for $\OML/cmm/m/it/10.95 Q$\T1/cmr
+/m/n/10.95 .
+ []
+
 [3]
-Overfull \hbox (5.75615pt too wide) in alignment at lines 482--489
+Overfull \hbox (2.05426pt too wide) in alignment at lines 454--457
  [] [] [] [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
-[]\T1/cmr/m/n/10.95 Can use ap-prox-i-ma-tions for $\OML/cmm/m/it/10.95 Q$\T1/c
-mr/m/n/10.95 .
- []
-
-
-Overfull \hbox (6.3222pt too wide) in alignment at lines 526--529
- [] [] [] [][]
- []
-
-
-Overfull \hbox (10.91037pt too wide) in alignment at lines 543--547
+Overfull \hbox (6.64243pt too wide) in alignment at lines 471--475
  [] [] [] [][]
  []
 
 [4] (./cheet_sheet.aux)
 Package rerunfilecheck Info: File `cheet_sheet.out' has not changed.
-(rerunfilecheck)             Checksum: 485DC45EEBBA9D37FA7261DFB5EDBDFC;11540.
+(rerunfilecheck)             Checksum: 7DF3EED0CE4CCC27DDA80F7D9A09D1E5;10847.
  ) 
 Here is how much of TeX's memory you used:
- 10627 strings out of 478994
- 152780 string characters out of 5858183
- 512036 words of memory out of 5000000
- 27894 multiletter control sequences out of 15000+600000
+ 10617 strings out of 478994
+ 152660 string characters out of 5858183
+ 514671 words of memory out of 5000000
+ 27889 multiletter control sequences out of 15000+600000
  417009 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,13n,74p,465b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,13n,74p,419b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
 /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
@@ -660,10 +632,10 @@ ocal/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/loc
 al/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local
 /texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/t
 exlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on cheet_sheet.pdf (4 pages, 283886 bytes).
+Output written on cheet_sheet.pdf (4 pages, 280505 bytes).
 PDF statistics:
- 418 PDF objects out of 1000 (max. 8388607)
- 388 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
- 585 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 398 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 545 words of extra memory for PDF output out of 10000 (max. 10000000)
 
