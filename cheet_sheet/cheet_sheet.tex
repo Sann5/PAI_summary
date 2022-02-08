@@ -7,13 +7,13 @@
 \usepackage[landscape]{geometry}
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
 \usepackage{IEEEtrantools}
-\usepackage{draculatheme}
+%\usepackage{draculatheme}
 
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
     { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
 	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
-		{\geometry{top=.2cm,left=.2cm,right=.2cm,bottom=.2cm} }
-		{\geometry{top=.2cm,left=.2cm,right=.2cm,bottom=.2cm} }
+		{\geometry{top=.1cm,left=.1cm,right=.1cm,bottom=.1cm} }
+		{\geometry{top=.1cm,left=.1cm,right=.1cm,bottom=.1cm} }
 	}
 \pagestyle{empty}
 \makeatletter
@@ -41,33 +41,15 @@
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
 
-
-\section{Math}
 \subsection{Rules for the Mean and Variance}
 \begin{IEEEeqnarray*}{rCl}
-E(c) &=& c \\
-E(X+c) &=& E(X)+c \\
 E(cX ) &=& cE(X) \\
 E(X+Y) &=& E(X)+E(Y) \\
-Var(c) &=& 0 \\
-Var(X+c) &=& Var(X) \\
-Var(cX) &=& c^2Var(X)) \\
+Var(cX) &=& c^2Var(X) \\
 Var(X \pm Y) &=& Var(X) + Var(Y) \\
 &\pm & 2Cov(X,Y) \\
 Var(X) &=& \mathbb{E}[(X-\mathbb{E}[X])^2]
 \end{IEEEeqnarray*}
-
-\subsection{Univariate Gaussian}
-$f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}$\\
-
-\subsection{Multivariate Gaussian}
-\begin{IEEEeqnarray*}{rCl}
-&& f_{\mathbf {X} }(x_{1},\ldots ,x_{k})={\frac {1}{\sqrt {(2\pi )^{k}det({\boldsymbol {\Sigma }})}}} \\
-&& e^{\left(-{\frac {1}{2}}({\mathbf {x} }-{\boldsymbol {\mu }})^{\mathrm {T} }{\boldsymbol {\Sigma }}^{-1}({\mathbf {x} }-{\boldsymbol {\mu }})\right)}
-\end{IEEEeqnarray*}
-
-\subsection{Univariate Laplacian}
-$f(x)={\frac {1}{2b}}e^{\left(-{\frac {|x-\mu |}{b}}\right)}$
 
 \section{Bayesian Linear Regression}
 \begin{IEEEeqnarray*}{rCl}
@@ -76,12 +58,6 @@ p(w|X,y) &=& \mathcal{N}(w;\bar{\mu}, \bar{\Sigma}) \\
 \bar{\Sigma} &=& (\frac{1}{\sigma_n^2}X^TX+\frac{1}{\sigma_p^2}I)^{-1} \\
 y^\ast &=& w^T x^\ast + \epsilon \\
 p(y^\ast | X, y, x\ast) &=& \mathcal{N}(\bar{\mu}^T x^\ast, {x^\ast}^T \bar{\Sigma} x^\ast+ \sigma_n^2) 
-\end{IEEEeqnarray*}
-
-\subsection{Online Bayesian Linear Regression}
-\begin{IEEEeqnarray*}{rCl}
-X^TX = \sum_{i=1}^t x_i x_i^T \\
-X^Ty = \sum_{i=1}^t y_i x_i \\
 \end{IEEEeqnarray*}
 
 \subsection{MLE and MAP regression}
@@ -130,57 +106,14 @@ $K(\theta)$ is the Kernel matrix.
 && \underset{\theta}{\operatorname{argmax}} \; \int p(y_{train} \mid f, x_{train}, \theta) p(f \mid \theta) df \\
 &=& \underset{\theta}{\operatorname{argmax}} \; \int \mathcal{N}(f(x), \sigma_n^2) \mathcal{N}(0, K(\theta)) df \\
 &=& \underset{\theta}{\operatorname{argmax}} \; \mathcal{N} (0, K(\theta) + I\sigma_n^2) \\
-&=& \underset{\theta}{\operatorname{argmax}} \; p(y_{train} \mid x_{train}, \theta) \\
-&=& \underset{\theta}{\operatorname{argmin}} \;-\log p(y_{train} \mid x_{train}, \theta) \\ 
-&=& \underset{\theta}{\operatorname{argmin}} \; \frac{1}{2} \big(y(K(\theta) + I\sigma_n^2)^{-1}y \\
-&+& \log (\det K_y) \big) 
+&=& \underset{\theta}{\operatorname{argmax}} \; p(y_{train} \mid x_{train}, \theta)
 \end{IEEEeqnarray*}
-
-\section{Laplace Approximation}
-In the context of Log. Regression. 
-\begin{IEEEeqnarray*}{rCl}
-q(\theta) &=& \mathcal{N}(\hat{w}, \Lambda^{-1}) \\
-\hat{w} &=& \underset{w}{\operatorname{argmax}} \; p(w \mid y) \\
- &=& \underset{w}{\operatorname{argmax}} \; \frac{1}{Z}p(w)p(y \mid w) \\
-&=& \underset{w}{\operatorname{argmin}} \; \frac{1}{2\sigma_p^2} \Vert w \Vert_2^2 \\
-&+& \sum_{i=1}^n \log(1+e^{-y_iw^Tx_i}) \\
-\Lambda &=& - \nabla \nabla \log p(\hat{w} \mid x, y) \\
-&=&  X \; diag([\pi_i(1-\pi_i)]_i) \; X \\
-\pi_i &=& \sigma(\hat{w}^Tx_i)
-\end{IEEEeqnarray*}
-
-\subsubsection{Prediction}
-\begin{IEEEeqnarray*}{rCl}
-&& p(y^* \mid x^*, X, y) \\
-&=& \int p(y^* \mid x^*, w) p(w\mid X,y) dw\\
-&=& \int p(y^* \mid x^*, w) q_{\lambda}(w) dw \\
-&=& \int p(y^* \mid f^*) p(f^*\mid w) q_{\lambda}(w) dw df^* \\
-\end{IEEEeqnarray*}
-\begin{IEEEeqnarray*}{rCl}
-&& q_{\lambda}(w) \sim N(\mu, \Sigma) \\
-&& p(f^*\mid w) = x^* \\
-&& \int p(f^* \mid w) q_{\lambda}(w) dw\\
-&=& N(\mu^T x^*, x^* \Sigma x^*) \\
-&& p(y^* \mid x^*, X, y) \\
-&=& \int p(y^* \mid f^*) N(\mu^T x^*, x^*\Sigma x^*) df^*\\
-&& p(y^* \mid f^*) = \sigma(y^* f^*) \\
-\end{IEEEeqnarray*}
-
 \section{Variational Inference}
 \subsection{KL divergence} 
 Reverse KL div: $KL(q||p)$. Forward KL: $KL(p||q)$ (gives more conservative variance estimates).
 $$
 KL(q||p) = \int q(\theta) \log\frac{q(\theta)}{p(\theta)} d\theta
 $$
-
-\subsubsection{For Gaussians} 
-\begin{IEEEeqnarray*}{rCl}
-&& KL(p||q) \\
-&=& \frac{1}{2} \big( tr(\Sigma_1^{-1}\Sigma_0) + (\mu_1 - \mu_0)^T \Sigma_1^{-1} (\mu_1 - \mu_0) \\ 
-&&- d + ln(\frac{|\Sigma_1|}{|\Sigma_0|}) \big)  \\
-&& p = \mathcal{N}(\mu_0, \Sigma_0) \\
-&& q = \mathcal{N}(\mu_1, \Sigma_1) 
-\end{IEEEeqnarray*}
 
 \subsection{Minimizing KL divergence}
 \begin{IEEEeqnarray*}{rCl}
@@ -263,31 +196,11 @@ $$
 p(y^* \mid x^*, X, y) \approx \frac{1}{m} \sum_{j=1}^m p(y^* \mid x^*, \theta^{(j)})
 $$
 
-\subsection{Calibration}
-\subsubsection{Reliability Diagrams}
-If well calibrated $freq(B_m) = conf(B_m)$ for all bins.
-\begin{IEEEeqnarray*}{rCl}
-&& freq(B_m) = \frac{1}{|B_m|} \sum_{i \in B_m} 1(y_i = 1) \\
-&& conf(B_m) = \frac{1}{|B_m|} \sum_{i \in B_m} \hat{p}_i \\
-&& ECE = \sum_{m=1}^M \frac{|B_m|}{n} |freq(B_m) - conf(B_m)| \\
-&& MCE = \underset{m \in (1, ..., M)}{\operatorname{max}} \;|freq(B_m) - conf(B_m)|
-\end{IEEEeqnarray*}
-
-\subsubsection{Calibration Methods}
-\textbf{Histogram binning}: Assign calibrated score to each bin $\hat{q}_i = freq(B_m)$.
-\textbf{Isotonic regression}: Find piecewise constant function $f$, $\hat{q}_i = f(\hat{p}_i)$ that minimizes the bin-wise squared loss, by adjusting the bins.
-\textbf{Platt scaling}: Learn $a, b \in \mathbb{R}$ that minimize the
-NLL loss over the validation set when applied to the logits $z_i$, $\hat{q}_i = \sigma(az_i + b)$. Temperature scaling for multiple classes uses single parameter $T$ s.t. $\hat{q}_i = \underset{k}{\operatorname{max}} \;\sigma_{softmax}(z_i/T)^{(k)}$
-
-
 \section{Active Learning}
 Given $Y = X + \epsilon$ and $\epsilon \sim \mathcal{N}(0, \sigma_n^2I)$.
 \begin{IEEEeqnarray*}{rCl}
 I(Y;X) &=& H(Y) - H(Y|X) \\
 &=& H(Y) - H(\epsilon) \\
-&=& \frac{1}{2} \ln(2\pi e)^d |\Sigma + \sigma^2 I| \\
-&-& \frac{1}{2} \ln(2\pi e)^d |\sigma^2_n I| \\
-&=& \frac{1}{2} \ln \frac{(2\pi e)^d |\Sigma + \sigma^2 I|}{(2\pi e)^d |\sigma^2_n I|} \\
 &=& \frac{1}{2} \ln |I + \sigma_n^{-2}\Sigma |
 \end{IEEEeqnarray*}
 
@@ -306,7 +219,7 @@ x_{t+1} &=& \underset{x \in D}{\operatorname{argmax}} \; \mathbb{I}(\theta; y_{t
 &=& H(y_{t+1} | Y_t, X_t, x_{t+1}) \\
 &-& \mathbb{E}_{\theta \sim p(|X_t, Y_t)}[H(y_{t+1} | \cdot, \theta)] \\
 &\approx & H(y_{t+1} | Y_t, X_t, x_{t+1}) \\
-&-& \frac{1}{m} \sum_{j=1}^m H(y_{t+1} | \cdot, \theta^{(j)})\\
+&-& \frac{1}{m} \sum_{j=1}^m H(y_{t+1} | \cdot, \theta^{(j)})
 \end{IEEEeqnarray*}
 
 \section{Bayesian Optimization}
@@ -330,7 +243,7 @@ For a deterministic reward, some $\pi$ and state $x$:
 &=& \mathbb{E}[\sum_{t=0}^\infty \gamma^t r(X_t, \pi(X_t)) | X_0 = x] \\
 &=& r(x, \pi(x)) + \gamma \sum_{x'} P(x'|x, \pi(x))  V^{\pi}(x') \\
 && V^{\pi} = r^{\pi} + \gamma T^{\pi}V^{\pi} \\
-&& V^{\pi} = (I - \gamma T^{\pi})^{-1}r^{\pi} \\
+&& V^{\pi} = (I - \gamma T^{\pi})^{-1}r^{\pi} 
 \end{IEEEeqnarray*}
 
 \subsubsection{Fixed Point Iteration} 
@@ -341,16 +254,6 @@ Init. arbitrary (e.g., random) policy $\pi$. Compute $V^{\pi}$. Compute greedy p
 
 \subsection{Value Iteration}
 Init $V_0(x) = \underset{a}{\operatorname{max}} \; r(x, a)$. For $t = 1$ to $\infty$: For each $x, a$, $Q_t(x, a) = r(x, a) + \gamma \sum_{x'} P(x'|x, \pi(x))  V_{t-1}(x')$. For each  $x$, $V_t(x) = \underset{a}{\operatorname{max}} \; Q_t(x, a)$ Break if $\underset{x}{\operatorname{max}} \; |V_t(x) -V_{t-1}(x)| \le \epsilon$, otw repeat.
-
-\section{POMDP's}
-New state has probability $P(X_{t+1} = x' | x_t, a_t)$ and we observe $y_t \sim P(Y_t | X_t  = x_t)$.
-\begin{IEEEeqnarray*}{rCl}
-&& b_{t+1}(x) = P(X_{t+1} = x' | y_{t+1}) \\
-&& =  \frac{1}{Z} \sum_{x'} b_t(x) P(X_{t+1} = x' | x', a_t) \\
-&& P (y_{t+1} | x) \\
-&& r(b_t, a_t) = \sum_x b_t(x) r(x, a_t)
-\end{IEEEeqnarray*}
-
 \section{Reinforcement Learning}
 \subsection{Model Based RL}
 \subsubsection{MLE}
@@ -360,7 +263,7 @@ New state has probability $P(X_{t+1} = x' | x_t, a_t)$ and we observe $y_t \sim 
 \end{IEEEeqnarray*}
 
 \subsubsection{Rmax Algorithm}
-Initially: Add fairy tale state $x^{\star}$. Set $r(x, a) = Rmax$ for all states $x$ and actions $a$. Set $P(x^{\star} |x,a)=1$ for all $(x, a)$. Choose optimal policy for $r$ and $P$. Loop: Execute policy $\pi$. For each visited state action pair update $r(x, a)$. Estimate transition probabilities $P(x' | x, a)$. If observed “enough” transitions / rewards, recompute $\pi$.
+Add fairy tale state $x^{\star}$. Init $r(x, a) = Rmax$, $P(x^{\star} |x,a)=1$. Init $\pi |r,P$. Loop: Deploy $\pi$. If observed “enough” $P$ / $r$, recompute $\pi$.
 
 \subsection{Model Free RL}
 \subsubsection{TD-Learning}
@@ -376,18 +279,17 @@ l_2(\theta ; x, x', r) = \frac{1}{2}(V(x,\theta) - r - \gamma V(x'; \theta_{old}
 $$
 
 \subsubsection{Q-learning}
-Estimate the optimal policy with some behavioral policy. Optimistic initialization possible (guaranteed convergence). General convergence if $\forall \; (a, x)$ are visited $\infty$ many times. Otw trade off with epsilon greedy strategy.
+Optimistic initialization = guaranteed convergence. General convergence if $\forall \; (a, x)$ are visited $\infty$ many times. Otw trade off with epsilon greedy strategy.
 \begin{IEEEeqnarray*}{rCl}
-&& Q^{\star}(x, a) = r(x,a) \\
-&+& \gamma \sum_{x'} P(x' | x, a) V^{\star}(x') \\
+&& Q^{\star}(x, a) = r(x,a) + \gamma \sum_{x'} P(x' | x, a) V^{\star}(x') \\
 && V^{\star}(x) = \underset{a}{\operatorname{max}} \; Q^{\star}(x, a) \\
 && Q^{\star}(x, a) \leftarrow (1 - \alpha_t)Q^{\star}(x, a) \\
-&+& \alpha_t(r + \gamma \underset{a'}{\operatorname{max}} \; Q^{\star}(x', a'))
+&&+ \alpha_t(r + \gamma \underset{a'}{\operatorname{max}} \; Q^{\star}(x', a'))
 \end{IEEEeqnarray*}
 Unfeasible for continues state spaces because of memory requirement $\forall \; (a, x)$. 
 
 \subsubsection{Approximating value functions}
-Linear function approximation, where $\phi(x, a)$ is a set of hand designed features. To reduce variance keep the target values constant across episodes (e.g. replay buffer or twin network, Vanilla DQN).
+$\phi(x, a)$ is a set of hand designed features. 
 \begin{IEEEeqnarray*}{rCl}
 && \hat{Q}(x, a; \theta) = \theta^T \phi(x,a)\\
 && l_2(\theta ; x, a, x', r) = \frac{1}{2}(Q(x, a, \theta) - r \\
@@ -397,7 +299,6 @@ Linear function approximation, where $\phi(x, a)$ is a set of hand designed feat
 && \theta \leftarrow \theta - \alpha_t \delta \phi(x, a) \\
 && L(\theta) = \sum_{(x, a, r, x') \in D} l_2(\theta ; x, a, x', r)
 \end{IEEEeqnarray*}
-Double DQN avoids maximization bias (overconfidence about certain actions given the noise in the observations) by maximizing w.r.t. the current network instead of the old one. Maximization remains intractable for continues action spaces. 
 
 \subsection{Policy search methods}
 \begin{IEEEeqnarray*}{rCl}
@@ -424,65 +325,14 @@ Initialize policy weights $\pi(a|x;\theta)$. Repeat: Generate an episode. For ev
 $$
 \nabla_{\theta} J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[Q(x, a) \nabla\log\pi_{\theta}(a | x ; \theta)]
 $$
-Can use approximations for $Q$. Parametrized policy (actor) and value function approx (critic). Vanilla policy search methods are slow, actor-critic improves it. 
 
 \subsubsection{Online Actor Critic}
 \begin{IEEEeqnarray*}{rCl}
 \theta_{\pi} &\leftarrow & \theta_{\pi} + \eta_t Q(x, a; \theta_Q) \nabla \log \pi (a|x; \theta_{\pi}) \\
-\theta_{Q} &\leftarrow & \theta_{Q} \\
- &-& \eta_t( Q(x, a; \theta_Q) - r \\
+\theta_{Q} &\leftarrow & \theta_{Q} - \eta_t( Q(x, a; \theta_Q) - r \\
  &-& \gamma Q (x', \pi(x', \theta_{\pi}); \theta_{Q})) \nabla Q (a|x; \theta_{\pi})
 \end{IEEEeqnarray*}
 
-\subsection{Advantage Active Critique}
-\begin{IEEEeqnarray*}{rCl}
-&& \theta_{\pi} \leftarrow  \theta_{\pi} + \eta_t (Q(x, a; \theta_Q) - V(x; \theta_V)) \\
-&& \nabla \log \pi (a|x; \theta_{\pi}) \\
-\end{IEEEeqnarray*}
-
-\subsection{Off-Policy Actor Critic}
-Maximization $\rightarrow$ training param. policy. Gradients possible for both deterministic and stochastic parametrized policies.
-\begin{IEEEeqnarray*}{rCl}
-&& \underset{a}{\operatorname{max}} \; Q(x', a', \theta^{old}) \approx  Q(x', \pi (x'; \theta_{\pi}); \theta_Q^{old}) \\
-&& \nabla_{\theta} \hat{J}_{\mu}(\theta) = \mathbb{E}_{x\sim \mu} [ \nabla_{\theta} Q(x, \pi (x; \theta); \theta_Q)]  \\
-&& \nabla_{\theta_{\pi}} Q(x, \pi (x; \theta_{\pi}); \theta_Q) \\
-&& = \nabla_a Q(x,a) |_{a=\pi (x; \theta_{\pi})} \nabla_{\theta_{\pi}} \pi (x; \theta_{\pi})
-\end{IEEEeqnarray*}
-
-\subsection{Model-based Deep RL}
-\subsubsection{Planning in the known model}
-\begin{IEEEeqnarray*}{rCl}
-J(a_{t:t+H-1}) &\triangleq & \sum_{\tau = t}^{t+H-1} \gamma^{\tau - t}r_{\tau}(x_{\tau}(a_{t:\tau-1}), a_{\tau}) \\
-&+& \gamma^H V(x_{t+H})
-\end{IEEEeqnarray*}
-
-\subsubsection{Stochastic transition setting} 
-Choose the sequence of actions that maximizes the expectation over the randomness in the model, but also re plan after each action. Expectation estimated via MC sampling. 
-
-\subsubsection{Offline training}
-Optimizing a policy (deterministic or stochastic) that is fast to evaluate online. Look-ahead helps policies improve more rapidly, by anticipating consequence down the road. 
-
-\begin{IEEEeqnarray*}{rCl}
-J(\theta) &=& \mathbb{E}_{x \sim \mu} [ \sum_{\tau = 0: H-1} \gamma^{\tau}r_{\tau} \\
-&+& \gamma^H Q(x_H, \pi (x_H; \theta); \theta_Q) | \theta] 
-\end{IEEEeqnarray*}
-
-\subsubsection{Unknown Dynamics}
-\begin{IEEEeqnarray*}{rCl}
-&& \hat{J_H}(a_{t:t+H-1}) \\
-&=& \frac{1}{m} \sum_{i = 1}^m \sum_{\tau = t}^{t+H-1} \gamma^{\tau - t}r_{\tau}\\
-&& (x_{\tau}(a_{t:\tau-1}, \epsilon_{t:\tau-1}^{(i)}, f^{(i)}), a_{\tau}) + \gamma^H V(x_{t+H})
-\end{IEEEeqnarray*}
-
-\subsection{Greedy, Thompson and Optimistic Exploration}
-\subsubsection{Greedy}
-$D=[]$; prior $P(f) = P(f|[])$, then iterate the following: Plan new policy $\underset{\pi}{\operatorname{max}} \; \mathbb{E}_{f \sim P(\cdot|D)} J(\pi, f)$. Roll out $\pi$ and add collected data to D. Update posterior $P(f|D)$.
-
-\subsubsection{Thompson Sampling}
-Only difference is we sample the model $f \sim P(\cdot, D)$.
-
-\subsubsection{Optimistic Exploration}
-Main diff. is we plan new policy $\underset{\pi}{\operatorname{max}} \; \underset{f \in M(D)}{\operatorname{max}} \; \mathbb{E}_{f \sim P(\cdot|D)} J(\pi, f)$. 
 
 \end{multicols}
 \end{document}
